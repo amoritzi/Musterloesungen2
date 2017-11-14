@@ -29,6 +29,9 @@ namespace BaseTranslator_Uebung_3._2
                 case "Fernseher":
                     translate = "TV";
                     break;
+
+                default:
+                    translate = "Wort ist nicht vorhanden";
             }
 
 
