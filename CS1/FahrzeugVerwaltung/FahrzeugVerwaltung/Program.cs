@@ -37,7 +37,7 @@ namespace FahrzeugVerwaltung
                 case "F":
 
                     Console.WriteLine("Anzahl erfasster Fahrzeuge: {0}", FahrzeugeZaehlen);
-                    FahrzeugListe();
+                    FahrzeugListe(fahrzeuge);
                     AbfrageArt();
                     break;
 
@@ -59,7 +59,8 @@ namespace FahrzeugVerwaltung
 
                 case "E":
 
-                    return;
+                    Environment.Exit(0);
+                    break;
 
                 default:
 
@@ -144,7 +145,7 @@ namespace FahrzeugVerwaltung
             Lieferwagen lieferwagen = new Lieferwagen();
             Datenerfassung(lieferwagen);
 
-            Console.WriteLine("Bitte geben Sie das Sitzplätze ein:");
+            Console.WriteLine("Bitte geben Sie die Sitzplätze ein:");
             lieferwagen.Sitzplaetze = Convert.ToInt32(Console.ReadLine());
 
             //Console.WriteLine("Bitte geben Sie die Extras ein:");
@@ -153,54 +154,36 @@ namespace FahrzeugVerwaltung
             return lieferwagen;
 
         }
-        static void FahrzeugListe()
+        static void FahrzeugListe(Fahrzeug[] fahrzeuge)
         {
-         //   Fahrzeug[] sorted = fahrzeuge.OrderBy(c => c.FahrzeugID).ToArray();
-
-            //foreach (Fahrzeug element in fahrzeuge)
-            //{
-            //    foreach (Auto element1 in fahrzeuge)     // Auto anstelle von Object, dadurch können die Airbags auch angesprochen werden.
-            //    {
-            //        if (element1 != null)
-            //        {
-                        
-            //                Console.WriteLine("Erfasste Fahrzeuge:\n {0} {1} {2} ", element1.FahrzeugID, element1.Marke, element1.Airbags);
-            //                
-                        
-            //        }
 
 
 
-
-                    foreach (Motorrad element2 in fahrzeuge)     // Motorrad anstelle von Object, dadurch können die Airbags auch angesprochen werden.
+            foreach (Fahrzeug fz in fahrzeuge)
+            {
+                if (fz != null)
+                {
+                    if (fz is Auto)
                     {
-                        if (element2 != null)
-                        {
-                           
-                                Console.WriteLine("Erfasste Fahrzeuge:\n {0} {1} {2} {3}", element2.FahrzeugID, element2.Marke, element2.Extras, element2.Tankvolumen);
-                                
-                            
-                        }
-
+                        Auto car = fz as Auto;
+                        Console.WriteLine("Id:{0} Marke:{1} Airbags:{2} ", car.FahrzeugID, car.Marke, car.Airbags);
                     }
-
-                    foreach (Lieferwagen element3 in fahrzeuge)     // Lieferwagen anstelle von Object, dadurch können die Airbags auch angesprochen werden.
+                    else if (fz is Motorrad)
                     {
-                        if (element3 != null)
-                        {
-                           
-                                Console.WriteLine("Erfasste Fahrzeuge:\n {0} {1} {2} {3}", element3.FahrzeugID, element3.Marke, element3.Sitzplaetze, element3.Ladegewicht);
-                               
-                            
-                        }
+                        Motorrad moto = fz as Motorrad;
+                        Console.WriteLine("Id:{0}, Marke:{1} , Typ:{2}, Extras:{3}", moto.FahrzeugID, moto.Marke, moto.Typ, moto.Extras);
                     }
-                
-                AbfrageArt();
+                    else if (fz is Lieferwagen)
+                    {
+                        Lieferwagen lkw = fz as Lieferwagen;
+                        Console.WriteLine("Id:{0} Marke:{1} Sitzplätze:{2} ", lkw.FahrzeugID, lkw.Marke, lkw.Typ, lkw.Sitzplaetze);
+                    }
+                }
+               
             }
         }
-
-        
     }
+}
 
 
          

@@ -8,13 +8,15 @@ namespace FahrzeugVerwaltung
 {
     class Auto : Fahrzeug
     {
-        public int Airbags;
-        public string Innenfarbe;
-        public string KlimaAnlage;
+        public int Airbags { get; set; }
+        public string Innenfarbe { get; set; }
+        public string KlimaAnlage { get; set; }
 
-        public Auto()
-        {
-           
-        }
+        //public override string ToString()
+        //{
+        //    return $"Id:{}, Typ:{}, Marke:{Marke}, Typ: { Typ}, KlimaAnlage:{KlimaAnlage}";
+        //}
     }
+
+
 }

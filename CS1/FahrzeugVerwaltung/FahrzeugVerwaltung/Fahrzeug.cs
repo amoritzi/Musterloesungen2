@@ -7,21 +7,22 @@ using System.Threading.Tasks;
 namespace FahrzeugVerwaltung
 {
 
-    class Fahrzeug : IComparable
+    class Fahrzeug
     {
-        public int FahrzeugID;
-        public string Marke;
-        public String Typ;
-        public String Farbe;
-        public int Hubraum;
-        public int Preis;
-        public int Jahrgang;
-        public String Treibstoff;
+        public int FahrzeugID { get; set; }
+        public string Marke { get; set; }
+        public string Typ { get; set; }
+        public string Farbe { get; set; }
+        public int Hubraum { get; set; }
+        public double Preis { get; set; }
+        public DateTime Jahrgang { get; set; }
+        public string Treibstoff { get; set; }
 
-        public int CompareTo(object obj)
-        {
-            return FahrzeugID.CompareTo(obj);
-        }
+        //public override string ToString()
+        //{
+        //    return $"Id:{}, Typ:{}, Marke:{Marke}, Typ: { Typ}";
+        //  //  return String.Format("Id:{0}, Marke:{1}, Typ:{2}", FahrzeugID, Marke, Typ); // Variante mit Platzhaltern
+        //}
     }
 }
 
