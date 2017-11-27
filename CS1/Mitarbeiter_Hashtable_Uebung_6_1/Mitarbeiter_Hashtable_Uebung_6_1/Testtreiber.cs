@@ -9,7 +9,7 @@ namespace Mitarbeiter_Hashtable_Uebung_6_1
     class Testtreiber
     {
         MitarbeiterVerzeichnis mvz = new MitarbeiterVerzeichnis();
-        Array[] marray;
+        Object[] marray;
        
 
         public void MitarbeiterAbfuellen()
@@ -41,9 +41,16 @@ namespace Mitarbeiter_Hashtable_Uebung_6_1
 
         public Hashtable ArrayCopy ()
         {
-            marray = new Array[mvz.mitarbeitervz.Count];
-            //Console.WriteLine("Count: {0}", mvz.mitarbeitervz.Count);
+            marray = new Object[mvz.mitarbeitervz.Count];
             mvz.mitarbeitervz.CopyTo(marray, 0);
+
+            //   Mitarbeiter mitarbeiter = marray as Mitarbeiter;
+           
+            foreach (DictionaryEntry element in marray)
+            {
+                Console.WriteLine(element.ToString());
+            }  
+            
 
             return mvz.mitarbeitervz;
         }

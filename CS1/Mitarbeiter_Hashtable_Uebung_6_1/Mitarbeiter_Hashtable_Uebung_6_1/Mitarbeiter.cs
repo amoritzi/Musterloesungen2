@@ -15,7 +15,7 @@ namespace Mitarbeiter_Hashtable_Uebung_6_1
 
         public override string ToString()
         {
-            return $"{Personalnummer}, { Name}, { Vorname}, { Telefonnummer}";
+            return String.Format ($"{Personalnummer}, { Name}, { Vorname}, { Telefonnummer}");
         }
 
         

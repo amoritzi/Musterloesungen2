@@ -10,7 +10,7 @@ namespace ExtMeth_Uebung_5._3
     {
         static void Main(string[] args)
         {
-            Double d1 = 3.56429;
+            Double d1 = 123.12345;
             Console.WriteLine("Anzahl Nachkomma-Stellen: {0}", d1.CountDecimal());
         }
     }

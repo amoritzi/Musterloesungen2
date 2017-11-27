@@ -120,7 +120,7 @@ namespace FahrzeugVerwaltung
 
             //Console.WriteLine("Bitte geben Sie ein, ob das eine Klima-Anlage vorhanden ist ( J/N :");
             //auto.KlimaAnlage = Console.ReadLine();
-
+            
             return auto;
 
         }
