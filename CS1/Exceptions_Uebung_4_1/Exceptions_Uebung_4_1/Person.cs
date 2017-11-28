@@ -16,7 +16,7 @@ namespace Exceptions_Uebung_4_1
         {
             if (p == null) return 1;
 
-            Person pers = new Person();
+            Person pers = p as Person;
             if (p is Person p1)
             {
                 return this.CompareTo(p);
