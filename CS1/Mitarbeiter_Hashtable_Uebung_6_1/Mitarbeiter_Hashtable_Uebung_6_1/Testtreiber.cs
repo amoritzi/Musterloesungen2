@@ -44,8 +44,6 @@ namespace Mitarbeiter_Hashtable_Uebung_6_1
             object[] marray = new object[mvz.mitarbeitervz.Count];
             mvz.mitarbeitervz.CopyTo(marray, 0);
 
-            //   Mitarbeiter mitarbeiter = marray as Mitarbeiter;
-           
             foreach (DictionaryEntry element in marray)
             {
                 Mitarbeiter ma = element.Value as Mitarbeiter;

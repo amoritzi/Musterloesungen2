@@ -1,0 +1,313 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GeraeteVerwaltung_Pruefung1
+{
+    class Program
+        {
+        public static int GeraeteID { get; set; }
+        static void Main(string[] args)
+        {
+            
+            int anzahlGeraete = 0;
+            Geraet[] geraeteListe = new Geraet[40];
+            string eingabe;
+            
+
+        // Autoinitalizer
+
+        geraeteListe[0] = new Smartphone()
+            {
+                Id = 1,
+                Akkulaufzeit = 5,
+                AnzahlProzessoren = 2,
+                Arbeitsspeicher = "2 GB",
+                Bildschirmgroesse = "6,3'",
+                Farbe = Farbe.grün,
+                Kaufpreis = 599.00,
+                Marke = "Samsung",
+                MaxSpeichererweiterung = "128 KB",
+                MicroSDCardSlot = true,
+                Model = "S12",
+                OS = "Windows",
+                Prozessortyp = "Intel",
+                Speicherkapazitaet = "64 GB"
+            };
+            geraeteListe[1] = new Smartphone()
+            {
+                Id = 2,
+                Akkulaufzeit = 7,
+                AnzahlProzessoren = 1,
+                Arbeitsspeicher = "4 GB",
+                Bildschirmgroesse = "5,3'",
+                Farbe = Farbe.grau,
+                Kaufpreis = 999.00,
+                Marke = "Apple",
+                MaxSpeichererweiterung = "0",
+                MicroSDCardSlot = false,
+                Model = "IPhone 8",
+                OS = "iOS",
+                Prozessortyp = "AMD",
+                Speicherkapazitaet = "128 GB"
+            };
+            geraeteListe[2] = new Smartphone()
+            {
+                Id = 3,
+                Akkulaufzeit = 4,
+                AnzahlProzessoren = 1,
+                Arbeitsspeicher = "3 GB",
+                Bildschirmgroesse = "12'",
+                Farbe = Farbe.weiss,
+                Kaufpreis = 350.00,
+                Marke = "Huawei",
+                MaxSpeichererweiterung = "0",
+                MicroSDCardSlot = false,
+                Model = "2",
+                OS = "Android",
+                Prozessortyp = "AMD",
+                Speicherkapazitaet = "256 GB"
+            };
+            geraeteListe[3] = new Tablet()
+            {
+                Id = 4,
+                Farbe = Farbe.grün,
+                Speicherkapazitaet = "128 GB",
+                Prozessortyp = "Intel",
+                Akkulaufzeit = 12,
+                AnzahlProzessoren = 2,
+                Arbeitsspeicher = "2 GB",
+                Bildschirmgroesse = "9,7'",
+                Kaufpreis = 1299,
+                Marke = "HP",
+                MicroSDCardSlot = true,
+                Model = "1500",
+                OS = "Android",
+                _4G = false
+            };
+            geraeteListe[4] = new Tablet()
+            {
+                Id = 5,
+                Farbe = Farbe.rot,
+                Speicherkapazitaet = "256 GB",
+                Prozessortyp = "AMD",
+                Akkulaufzeit = 15,
+                AnzahlProzessoren = 3,
+                Arbeitsspeicher = "4 GB",
+                Bildschirmgroesse = "19'",
+                Kaufpreis = 1500,
+                Marke = "Lenovo",
+                MicroSDCardSlot = false,
+                Model = "X220",
+                OS = "Windows",
+                _4G = true
+            };
+            geraeteListe[5] = new Tablet()
+            {
+                Id = 6,
+                Farbe = Farbe.schwarz,
+                Speicherkapazitaet = "1 TB",
+                Prozessortyp = "AMD",
+                Akkulaufzeit = 12,
+                AnzahlProzessoren = 1,
+                Arbeitsspeicher = "512 MB",
+                Bildschirmgroesse = "15'",
+                Kaufpreis = 800,
+                Marke = "Huawei",
+                MicroSDCardSlot = false,
+                Model = "GS",
+                OS = "Windows",
+                _4G = false
+            };
+            geraeteListe[6] = new Notebook()
+            {
+                Id = 7,
+                OS = "iOS",
+                Model = "MacBook",
+                Akkulaufzeit = 14,
+                AnzahlProzessoren = 4,
+                Arbeitsspeicher = "16 GB",
+                BeleuchteteTastatur = true,
+                Bildschirmgroesse = "15,6'",
+                Farbe = Farbe.weiss,
+                HDMIAnschluss = true,
+                Kaufpreis = 2697.00,
+                Marke = "Apple",
+                Prozessortyp = "CoreIntel",
+                Speicherkapazitaet = "128 GB",
+                SSDGroesse = "512 GB"
+            };
+            geraeteListe[7] = new Notebook()
+            {
+                Id = 8,
+                OS = "Windows",
+                Model = "FB120",
+                Akkulaufzeit = 12,
+                AnzahlProzessoren = 4,
+                Arbeitsspeicher = "8 GB",
+                BeleuchteteTastatur = false,
+                Bildschirmgroesse = "12,3'",
+                Farbe = Farbe.rot,
+                HDMIAnschluss = true,
+                Kaufpreis = 1599.00,
+                Marke = "ASUS",
+                Prozessortyp = "CoreIntel",
+                Speicherkapazitaet = "1 TB",
+                SSDGroesse = "0"
+            };
+            geraeteListe[8] = new Notebook()
+            {
+                Id = 9,
+                OS = "Windows",
+                Model = "VivoBook",
+                Akkulaufzeit = 24,
+                AnzahlProzessoren = 2,
+                Arbeitsspeicher = "16 GB",
+                BeleuchteteTastatur = false,
+                Bildschirmgroesse = "16'",
+                Farbe = Farbe.blau,
+                HDMIAnschluss = true,
+                Kaufpreis = 1899.00,
+                Marke = "OMEN",
+                Prozessortyp = "CoreIntel",
+                Speicherkapazitaet = "768 MB",
+                SSDGroesse = "1 TB"
+            };
+
+            anzahlGeraete = 9;
+            GeraeteID = (Array.FindLastIndex(geraeteListe, n => n != null) + 2);
+            
+
+            // Menu
+
+            do
+            {
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("--- Geräteverwaltung [{0}]---", anzahlGeraete);
+                Console.WriteLine("");
+
+                Console.WriteLine("1 - Smartphone erfassen");
+                Console.WriteLine("2 - Tablet erfassen");
+                Console.WriteLine("3 - Notebook erfassen");
+                Console.WriteLine("4 - Geräteliste anzeigen");
+                Console.WriteLine("5 - Gerät modifizieren");
+                Console.WriteLine("6 - Gerät löschen");
+                Console.WriteLine("9 - Beenden");
+
+                eingabe = Console.ReadLine();
+                Console.ResetColor();
+
+                switch (eingabe)
+                {
+                    case "1":
+                        Console.WriteLine("Erfasse Smartphone");
+                        geraeteListe[anzahlGeraete] = ErfasseSmartphone();
+                        anzahlGeraete++;
+                        break;
+                   /* case "2":
+                        Console.WriteLine("Erfasse Tablet");
+                        geraeteListe[anzahlGeraete] = ErfasseTablet();
+                        break;
+                    case "3":
+                        Console.WriteLine("Erfasse Notebook");
+                        geraeteListe[anzahlGeraete] = ErfasseNotebook();
+                        break;  */
+                    case "4":
+                        GeraeteListeAusgeben(geraeteListe);
+                        Console.ReadLine();
+                        break;
+               /*     case "5":
+                        Console.WriteLine("Modifiziere Gerät");
+                        geraeteListe[anzahlGeraete] = ModifiziereGeraet();
+                        break;
+                    case "6":
+                        Console.WriteLine("Lösche Gerät");
+                        geraeteListe[anzahlGeraete] = LoescheGeraet();
+                        break;  */
+                    case "9":
+                        Console.WriteLine("Programm wird beendet");
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Kein gültiger Befehl!");
+                        Console.WriteLine("Drücke eine Taste");
+                        Console.ReadLine();
+                        break;
+                }
+
+            } while (true);
+        }
+
+        
+        static void ErfasseGeraeteDaten(Geraet geraet)
+        {
+            geraet.Id = GeraeteID++;
+            Console.Write("Bitte geben Sie die Marke ein: ");
+            geraet.Marke = Console.ReadLine();
+            Console.Write("Bitte geben Sie das Modell ein: ");
+            geraet.Model = Console.ReadLine();
+            Console.Write("Bitte geben Sie das Operating System ein: ");
+            geraet.OS = Console.ReadLine();
+            Console.Write("Bitte geben Sie den Arbeitsspeicher ein: ");
+            geraet.Arbeitsspeicher = Console.ReadLine();
+            Console.Write("Bitte geben Sie die Speicherkapazität ein: ");
+            geraet.Speicherkapazitaet = Console.ReadLine();
+            Console.Write("Bitte geben Sie die Bildschirmgrösse ein: ");
+            geraet.Bildschirmgroesse = Console.ReadLine();
+            Console.Write("Bitte geben Sie die Akkulaufzeit in Stunden ein: ");
+            string akkulaufzeit = Console.ReadLine();
+            Console.Write("Bitte geben Sie den Prozessortyp ein: ");
+            geraet.Prozessortyp = Console.ReadLine();
+            Console.Write("Bitte geben Sie die Anzahl Prozessoren ein: ");
+            string anzahlprozessoren = Console.ReadLine();
+            Console.Write("Bitte geben Sie die Farbe ein (0: schwarz, 1: grau, 2: weiss, 3: blau, 4: rot, 5: grün): ");
+            string farbe = Console.ReadLine();
+            Console.Write("Bitte geben Sie den Kaufpreis ein: ");
+            string preis = Console.ReadLine();
+
+            geraet.Akkulaufzeit = Convert.ToDouble(akkulaufzeit);
+            geraet.AnzahlProzessoren = Convert.ToInt32(anzahlprozessoren);
+            geraet.Farbe = (Farbe)Enum.Parse(typeof(Farbe), farbe);
+            geraet.Kaufpreis = Convert.ToDouble(preis);
+        }
+        static Smartphone ErfasseSmartphone()
+        {
+            Console.WriteLine("Smartphone erfassen");
+            Console.WriteLine("-------------------");
+
+            Smartphone smartphone = new Smartphone();
+            ErfasseGeraeteDaten(smartphone);
+
+            Console.Write("Bitte geben Sie an, ob das Smartphone über eine MicroSD-Card Slot verfügt(J / N): ");
+            string sdcardslot = Console.ReadLine();
+            if (sdcardslot == "J")
+            {
+                sdcardslot = "true";
+                Console.WriteLine("Bitte geben Sie an, wie gross die maximale Speichererweitung sein kann: ");
+                smartphone.MaxSpeichererweiterung = Console.ReadLine();
+                
+            }
+            else sdcardslot = "false";
+            smartphone.MicroSDCardSlot = Boolean.Parse(sdcardslot);
+
+            return smartphone;
+
+
+        }
+
+        static void GeraeteListeAusgeben(Geraet[] geraeteListe)
+        {
+            foreach (Geraet ger in geraeteListe)
+            {
+                if (ger != null)
+                    Console.WriteLine(ger); 
+            }
+        }
+
+    }
+}
+    

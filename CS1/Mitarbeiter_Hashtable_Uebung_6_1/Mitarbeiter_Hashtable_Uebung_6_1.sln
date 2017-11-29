@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FahrzeugVerwaltung", "..\Fa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung_3_5_Fahrzeugverwaltung", "..\..\..\Musterloesungen\Uebung_3_5_Fahrzeugverwaltung\Uebung_3_5_Fahrzeugverwaltung.csproj", "{4F745E7A-40D8-4B5A-B29B-4AED74E2B74C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeraeteVerwaltung_Pruefung1", "..\GeraeteVerwaltung_Pruefung1\GeraeteVerwaltung_Pruefung1\GeraeteVerwaltung_Pruefung1.csproj", "{A382E97F-26AC-4786-9242-6C54F28DD7CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4F745E7A-40D8-4B5A-B29B-4AED74E2B74C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F745E7A-40D8-4B5A-B29B-4AED74E2B74C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F745E7A-40D8-4B5A-B29B-4AED74E2B74C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A382E97F-26AC-4786-9242-6C54F28DD7CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A382E97F-26AC-4786-9242-6C54F28DD7CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A382E97F-26AC-4786-9242-6C54F28DD7CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A382E97F-26AC-4786-9242-6C54F28DD7CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
