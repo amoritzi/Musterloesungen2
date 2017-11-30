@@ -15,11 +15,11 @@ namespace GeraeteVerwaltung_Pruefung1
             int anzahlGeraete = 0;
             Geraet[] geraeteListe = new Geraet[40];
             string eingabe;
-            
 
-        // Autoinitalizer
 
-        geraeteListe[0] = new Smartphone()
+            // Autoinitalizer
+
+            geraeteListe[0] = new Smartphone()
             {
                 Id = 1,
                 Akkulaufzeit = 5,
@@ -177,6 +177,7 @@ namespace GeraeteVerwaltung_Pruefung1
             };
 
             anzahlGeraete = 9;
+            GeraeteID = 1;
             GeraeteID = (Array.FindLastIndex(geraeteListe, n => n != null) + 2);
             
 
@@ -204,18 +205,20 @@ namespace GeraeteVerwaltung_Pruefung1
                 switch (eingabe)
                 {
                     case "1":
-                        Console.WriteLine("Erfasse Smartphone");
+                        Console.WriteLine("");
                         geraeteListe[anzahlGeraete] = ErfasseSmartphone();
                         anzahlGeraete++;
                         break;
-                   /* case "2":
-                        Console.WriteLine("Erfasse Tablet");
+                    case "2":
+                        Console.WriteLine("");
                         geraeteListe[anzahlGeraete] = ErfasseTablet();
+                        anzahlGeraete++;
                         break;
                     case "3":
-                        Console.WriteLine("Erfasse Notebook");
+                        Console.WriteLine("");
                         geraeteListe[anzahlGeraete] = ErfasseNotebook();
-                        break;  */
+                        anzahlGeraete++;
+                        break; 
                     case "4":
                         GeraeteListeAusgeben(geraeteListe);
                         Console.ReadLine();
@@ -295,8 +298,71 @@ namespace GeraeteVerwaltung_Pruefung1
             smartphone.MicroSDCardSlot = Boolean.Parse(sdcardslot);
 
             return smartphone;
+            }
 
+        static Tablet ErfasseTablet()
+        {
+            Console.WriteLine("Tablet erfassen");
+            Console.WriteLine("---------------");
 
+            Tablet tablet = new Tablet();
+            ErfasseGeraeteDaten(tablet);
+
+            Console.Write("Bitte geben Sie an, ob das Tablet über eine MicroSD-Card Slot verfügt(J / N): ");
+            string sdcardslot = Console.ReadLine();
+            if (sdcardslot == "J")
+            {
+                sdcardslot = "true";
+               
+            }
+            else sdcardslot = "false";
+            tablet.MicroSDCardSlot = Boolean.Parse(sdcardslot);
+
+            Console.WriteLine("Bitte geben Sie an, ob das Tablet über 4G verfügt:(J / N: ");
+            string _4g = Console.ReadLine();
+            if (_4g == "J")
+            {
+                _4g = "true";
+
+            }
+            else    _4g = "false";
+            tablet._4G = Boolean.Parse(_4g);
+            
+            return tablet;
+        }
+
+        static Notebook ErfasseNotebook()
+        {
+            Console.WriteLine("Notebook erfassen");
+            Console.WriteLine("-----------------");
+
+            Notebook notebook = new Notebook();
+            ErfasseGeraeteDaten(notebook);
+
+            Console.Write("Bitte geben Sie die Grösse der SSD an: ");
+            notebook.SSDGroesse = Console.ReadLine();
+
+            Console.Write("Bitte geben Sie an, ob das Notebook über eine beleuchtete Tastatur verfügt(J / N): ");
+            string beleuchteteTastatur = Console.ReadLine();
+            if (beleuchteteTastatur == "J")
+            {
+                beleuchteteTastatur = "true";
+
+            }
+            else beleuchteteTastatur = "false";
+            notebook.BeleuchteteTastatur = Boolean.Parse(beleuchteteTastatur);
+
+            Console.WriteLine("Bitte geben Sie an, ob das Notebook über einen HDMI-Anschluss verfügt:(J / N: ");
+            string hdmiAnschluss = Console.ReadLine();
+            if (hdmiAnschluss == "J")
+            {
+                hdmiAnschluss = "true";
+
+            }
+            else hdmiAnschluss = "false";
+            notebook.HDMIAnschluss = Boolean.Parse(hdmiAnschluss);
+
+            return notebook;
         }
 
         static void GeraeteListeAusgeben(Geraet[] geraeteListe)
