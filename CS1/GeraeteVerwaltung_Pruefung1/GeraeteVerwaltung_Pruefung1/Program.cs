@@ -8,7 +8,7 @@ namespace GeraeteVerwaltung_Pruefung1
 {
     class Program
         {
-        public static int index = 0;
+        public static int index;
         public static int GeraeteID { get; set; }
         static void Main(string[] args)
         {
@@ -376,31 +376,33 @@ namespace GeraeteVerwaltung_Pruefung1
                     Console.WriteLine(ger);
             }
         }
-                
+       
         static void ModifizereTablet(Tablet[] geraeteliste)
         {
             Tablet tablet = new Tablet();
 
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("Es werden Ihnen nachstehend die vorhandenen Felder mit Inhalt aufgelistet. " +
-                              "Falls Sie den Inhalt belassen wollen, drücken Sie bitte die Enter-Taste. Andernfalls geben " +
-                              "Sie bitte den neuen Inhalt ein und drücken Sie dann die Enter-Taste.");
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.ResetColor();
-
-            Console.WriteLine("Inhalt Marke = {0}", geraeteliste[index].Marke + " > Aenderung: ");
-            string eingabe1 = Console.ReadLine();
-            if (eingabe1 != "")
+            Console.Write("Inhalt Micro-SDCard Slot = {0}", geraeteliste[index].MicroSDCardSlot + " > Aenderung: (J / N): ");
+            string sdcardslot = Console.ReadLine();
+            if (sdcardslot != "")
             {
-                geraeteliste[index].Marke = eingabe1;
+                if (sdcardslot == "J")
+                {
+                    sdcardslot = "true";
+
+                }
+                else sdcardslot = "false";
+                geraeteliste[index].MicroSDCardSlot = Boolean.Parse(sdcardslot);
             }
-            Console.WriteLine("Inhalt Model = {0}", geraeteliste[index].Model + " > Aenderung: ");
-            string eingabe2 = Console.ReadLine();
-            if (eingabe2 != "")
+            Console.WriteLine("Inhalt 4G = {0}", geraeteliste[index]._4G + " > Aenderung: (J / N): ");
+            string _4g = Console.ReadLine();
+            if (_4g != "")
             {
-                geraeteliste[index].Model = eingabe2;
-
+                if (_4g == "J")
+                {
+                    _4g = "true";
+                }
+                else _4g = "false";
+                geraeteliste[index]._4G = Boolean.Parse(_4g);
             }
         }
 
@@ -416,15 +418,23 @@ namespace GeraeteVerwaltung_Pruefung1
             string id = Console.ReadLine();
             int ind = Convert.ToInt32(id);
             index = Array.FindIndex(geraeteliste, row => row.Id == ind);
+            ModifizereGeraete(geraeteliste);
             Type a = geraeteliste[index].GetType();
             Type b = typeof(Tablet);
             if (a.Equals(b))
             {
-                ModifizereTablet(geraeteliste);
+       //     ModifizereTablet(geraet as Tablet);
             }
-            else Console.WriteLine("Typ stimmt nicht überein!");
-            
-
+            Type c = typeof(Notebook);
+            if (a.Equals(c))
+            {
+                //     ModifizereNotebook(geraeteliste);
+            }
+            Type d = typeof(Smartphone);
+            if (a.Equals(d))
+            {
+                //     ModifizereSmartphone(geraeteliste);
+            }
 
 
 
@@ -460,6 +470,89 @@ namespace GeraeteVerwaltung_Pruefung1
                   }   */
 
 
+        }
+        static void ModifizereGeraete(Geraet[] geraeteliste)
+        {
+            Geraet geraet = new Geraet();
+
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("Es werden Ihnen nachstehend die vorhandenen Felder mit Inhalt aufgelistet. " +
+                              "Falls Sie den Inhalt belassen wollen, drücken Sie bitte die Enter-Taste. Andernfalls geben " +
+                              "Sie bitte den neuen Inhalt ein und drücken Sie dann die Enter-Taste.");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.ResetColor();
+
+            Console.WriteLine("Inhalt Marke = {0}", geraeteliste[index].Marke + " > Aenderung: ");
+            string marke = Console.ReadLine();
+            if (marke != "")
+            {
+                geraeteliste[index].Marke = marke;
+            }
+            Console.WriteLine("Inhalt Model = {0}", geraeteliste[index].Model + " > Aenderung: ");
+            string model = Console.ReadLine();
+            if (model != "")
+            {
+                geraeteliste[index].Model = model;
+            }
+            Console.WriteLine("Inhalt OS = {0}", geraeteliste[index].OS + " > Aenderung: ");
+            string os = Console.ReadLine();
+            if (os != "")
+            {
+                geraeteliste[index].OS = os;
+            }
+            Console.WriteLine("Inhalt Arbeitsspeicher = {0}", geraeteliste[index].Arbeitsspeicher + " > Aenderung: ");
+            string arbeitsspeicher = Console.ReadLine();
+            if (arbeitsspeicher != "")
+            {
+                geraeteliste[index].Arbeitsspeicher = arbeitsspeicher;
+            }
+            Console.WriteLine("Inhalt Speicherkapazität = {0}", geraeteliste[index].Speicherkapazitaet + " > Aenderung: ");
+            string speicherkapazitaet = Console.ReadLine();
+            if (speicherkapazitaet != "")
+            {
+                geraeteliste[index].Speicherkapazitaet = speicherkapazitaet;
+            }
+            Console.WriteLine("Inhalt Bildschirmgroesse = {0}", geraeteliste[index].Bildschirmgroesse + " > Aenderung: ");
+            string bildschirmgroesse = Console.ReadLine();
+            if (bildschirmgroesse != "")
+            {
+                geraeteliste[index].Bildschirmgroesse = bildschirmgroesse;
+            }
+            Console.WriteLine("Inhalt Akkulaufzeit = {0}", geraeteliste[index].Akkulaufzeit + " > Aenderung: ");
+            string akkulaufzeit = Console.ReadLine();
+            
+            if (akkulaufzeit != "")
+            {
+                geraeteliste[index].Akkulaufzeit = Convert.ToDouble(akkulaufzeit);
+            }
+            Console.WriteLine("Inhalt Prozessortyp = {0}", geraeteliste[index].Prozessortyp + " > Aenderung: ");
+            string prozessortyp = Console.ReadLine();
+            if (prozessortyp != "")
+            {
+                geraeteliste[index].Prozessortyp = prozessortyp;
+            }
+            Console.WriteLine("Inhalt Anzahl Prozessoren = {0}", geraeteliste[index].AnzahlProzessoren + " > Aenderung: ");
+            string anzahlProzessoren = Console.ReadLine();
+
+            if (anzahlProzessoren != "")
+            {
+                geraeteliste[index].AnzahlProzessoren = Convert.ToInt32(anzahlProzessoren);
+            }
+            Console.WriteLine("Inhalt Farbe = {0}", geraeteliste[index].Farbe + " > Aenderung (0: schwarz, 1: grau, 2: weiss, 3: blau, 4: rot, 5: grün): ");
+            string farbe = Console.ReadLine();
+
+            if (farbe != "")
+            {
+                geraeteliste[index].Farbe = (Farbe)Enum.Parse(typeof(Farbe), farbe);
+            }
+            Console.WriteLine("Inhalt Kaufpreis = {0}", geraeteliste[index].Kaufpreis + " > Aenderung: ");
+            string kaufpreis = Console.ReadLine();
+
+            if (kaufpreis != "")
+            {
+                geraeteliste[index].Kaufpreis = Convert.ToDouble(kaufpreis);
+            }
         }
 
         static Geraet LoescheGeraet(Geraet[] geraeteliste)
