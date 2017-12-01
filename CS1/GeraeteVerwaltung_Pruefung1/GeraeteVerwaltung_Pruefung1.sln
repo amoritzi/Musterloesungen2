@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeraeteVerwaltung_Pruefung1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung_3_5_Fahrzeugverwaltung", "..\..\..\Musterloesungen\Uebung_3_5_Fahrzeugverwaltung\Uebung_3_5_Fahrzeugverwaltung.csproj", "{4F745E7A-40D8-4B5A-B29B-4AED74E2B74C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mitarbeiter_Hashtable_Uebung_6_1", "..\Mitarbeiter_Hashtable_Uebung_6_1\Mitarbeiter_Hashtable_Uebung_6_1\Mitarbeiter_Hashtable_Uebung_6_1.csproj", "{FCA0BF1C-51E3-4587-8A7F-8517D3F89E96}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4F745E7A-40D8-4B5A-B29B-4AED74E2B74C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F745E7A-40D8-4B5A-B29B-4AED74E2B74C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F745E7A-40D8-4B5A-B29B-4AED74E2B74C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCA0BF1C-51E3-4587-8A7F-8517D3F89E96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCA0BF1C-51E3-4587-8A7F-8517D3F89E96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCA0BF1C-51E3-4587-8A7F-8517D3F89E96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCA0BF1C-51E3-4587-8A7F-8517D3F89E96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

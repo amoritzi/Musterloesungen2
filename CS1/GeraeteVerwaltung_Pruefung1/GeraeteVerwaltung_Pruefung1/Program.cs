@@ -8,6 +8,7 @@ namespace GeraeteVerwaltung_Pruefung1
 {
     class Program
         {
+        public static int index = 0;
         public static int GeraeteID { get; set; }
         static void Main(string[] args)
         {
@@ -223,14 +224,16 @@ namespace GeraeteVerwaltung_Pruefung1
                         GeraeteListeAusgeben(geraeteListe);
                         Console.ReadLine();
                         break;
-               /*     case "5":
-                        Console.WriteLine("Modifiziere Gerät");
-                        geraeteListe[anzahlGeraete] = ModifiziereGeraet();
+                    case "5":
+                        Console.WriteLine("");
+                        ModifiziereGeraet(geraeteListe);
+                        Console.ReadLine();
                         break;
                     case "6":
-                        Console.WriteLine("Lösche Gerät");
-                        geraeteListe[anzahlGeraete] = LoescheGeraet();
-                        break;  */
+                        Console.WriteLine("");
+                        LoescheGeraet(geraeteListe);
+                        Console.ReadLine();
+                        break; 
                     case "9":
                         Console.WriteLine("Programm wird beendet");
                         Environment.Exit(0);
@@ -370,8 +373,110 @@ namespace GeraeteVerwaltung_Pruefung1
             foreach (Geraet ger in geraeteListe)
             {
                 if (ger != null)
-                    Console.WriteLine(ger); 
+                    Console.WriteLine(ger);
             }
+        }
+                
+        static void ModifizereTablet(Tablet[] geraeteliste)
+        {
+            Tablet tablet = new Tablet();
+
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("Es werden Ihnen nachstehend die vorhandenen Felder mit Inhalt aufgelistet. " +
+                              "Falls Sie den Inhalt belassen wollen, drücken Sie bitte die Enter-Taste. Andernfalls geben " +
+                              "Sie bitte den neuen Inhalt ein und drücken Sie dann die Enter-Taste.");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.ResetColor();
+
+            Console.WriteLine("Inhalt Marke = {0}", geraeteliste[index].Marke + " > Aenderung: ");
+            string eingabe1 = Console.ReadLine();
+            if (eingabe1 != "")
+            {
+                geraeteliste[index].Marke = eingabe1;
+            }
+            Console.WriteLine("Inhalt Model = {0}", geraeteliste[index].Model + " > Aenderung: ");
+            string eingabe2 = Console.ReadLine();
+            if (eingabe2 != "")
+            {
+                geraeteliste[index].Model = eingabe2;
+
+            }
+        }
+
+        static void ModifiziereGeraet(Geraet[] geraeteliste)
+        {
+            Console.WriteLine("Gerät modifizieren");
+            Console.WriteLine("------------------");
+
+            
+            Geraet geraet = new Geraet();
+
+            Console.WriteLine("Bitte geben Sie die ID des zu modifizierenden Geräts an: ");
+            string id = Console.ReadLine();
+            int ind = Convert.ToInt32(id);
+            index = Array.FindIndex(geraeteliste, row => row.Id == ind);
+            Type a = geraeteliste[index].GetType();
+            Type b = typeof(Tablet);
+            if (a.Equals(b))
+            {
+                ModifizereTablet(geraeteliste);
+            }
+            else Console.WriteLine("Typ stimmt nicht überein!");
+            
+
+
+
+
+
+
+
+            /*      AbfrageModifikationsDaten(geraeteliste);
+
+                  Console.WriteLine("Bitte geben Sie die ID des zu modifizierenden Geräts an: ");
+                  string id = Console.ReadLine();
+                  int ind = Convert.ToInt32(id);
+                  int index = Array.FindIndex(geraeteliste, row => row.Id == ind);
+                  Type type = geraeteliste[index].GetType();
+                  if (type.Equals("GeraeteVerwaltung_Pruefung1.Tablet"))
+                  {
+                      Tablet tablet = new Tablet();
+                      Console.WriteLine("Inhalt Marke = {0}", geraeteliste[index].Marke+"Aenderung: ");
+                     // ErfasseGeraeteDaten(tablet);
+                  }
+
+
+                  // geraeteliste[index].Marke = "ASUS";
+
+
+
+                 // Array.ForEach(geraeteliste[index], Console.WriteLine(geraet.Marke));
+
+
+                /*  foreach (var element in geraeteliste)
+                  {
+                      Geraet ger = element as Type
+                      Console.WriteLine(ger.ToString());
+                  }   */
+
+
+        }
+
+        static Geraet LoescheGeraet(Geraet[] geraeteliste)
+        {
+            Console.WriteLine("Gerät löschen");
+            Console.WriteLine("-------------");
+
+            Geraet geraet = new Geraet();
+
+            Console.WriteLine("Bitte geben Sie die ID des zu löschenden Geräts an: ");
+            string id = Console.ReadLine();
+            int ind = Convert.ToInt32(id);
+            int index = Array.FindIndex(geraeteliste, row => row.Id == ind);
+            Array.Clear(geraeteliste, index, 1);
+            Console.WriteLine("Gerät mit ID {0} wurde gelöscht.", ind);
+
+            return geraet;
         }
 
     }
