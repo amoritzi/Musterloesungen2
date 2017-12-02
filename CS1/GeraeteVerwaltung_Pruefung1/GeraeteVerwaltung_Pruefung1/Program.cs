@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -265,20 +266,119 @@ namespace GeraeteVerwaltung_Pruefung1
             Console.Write("Bitte geben Sie die Bildschirmgrösse ein: ");
             geraet.Bildschirmgroesse = Console.ReadLine();
             Console.Write("Bitte geben Sie die Akkulaufzeit in Stunden ein: ");
-            string akkulaufzeit = Console.ReadLine();
+            try
+            {
+                string akkulaufzeit = Console.ReadLine();
+                geraet.Akkulaufzeit = Convert.ToDouble(akkulaufzeit);
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine("Falsche Eingabe, möglich sind nur Zahlen (allenfalls mit Dezimalstellen). Neuer Versuch: " );
+                Console.Write("Bitte geben Sie die Akkulaufzeit in Stunden ein: ");
+                try
+                {
+                    string akkulaufzeit = Console.ReadLine();
+                    geraet.Akkulaufzeit = Convert.ToDouble(akkulaufzeit);
+                }
+                catch (FormatException e1)
+                {
+                    Console.WriteLine("Falsche Eingabe, möglich sind nur Zahlen (allenfalls mit Dezimalstellen).");
+
+                }
+            }
             Console.Write("Bitte geben Sie den Prozessortyp ein: ");
             geraet.Prozessortyp = Console.ReadLine();
             Console.Write("Bitte geben Sie die Anzahl Prozessoren ein: ");
-            string anzahlprozessoren = Console.ReadLine();
-            Console.Write("Bitte geben Sie die Farbe ein (0: schwarz, 1: grau, 2: weiss, 3: blau, 4: rot, 5: grün): ");
-            string farbe = Console.ReadLine();
-            Console.Write("Bitte geben Sie den Kaufpreis ein: ");
-            string preis = Console.ReadLine();
+            try
+            {
+                string anzahlprozessoren = Console.ReadLine();
+                geraet.AnzahlProzessoren = Convert.ToInt32(anzahlprozessoren);
+                
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine("Falsche Eingabe, möglich sind nur ganze Zahlen. Neuer Versuch: ");
+                Console.Write("Bitte geben Sie die Anzahl Prozessoren ein: ");
+                try
+                {
+                    string anzahlprozessoren = Console.ReadLine();
+                    geraet.AnzahlProzessoren = Convert.ToInt32(anzahlprozessoren);
+                }
+                catch (FormatException e1)
+                {
+                    Console.WriteLine("Falsche Eingabe, möglich sind nur ganze Zahlen.");
 
-            geraet.Akkulaufzeit = Convert.ToDouble(akkulaufzeit);
-            geraet.AnzahlProzessoren = Convert.ToInt32(anzahlprozessoren);
-            geraet.Farbe = (Farbe)Enum.Parse(typeof(Farbe), farbe);
-            geraet.Kaufpreis = Convert.ToDouble(preis);
+                }
+            }
+            
+            Console.Write("Bitte geben Sie die Farbe ein (0: schwarz, 1: grau, 2: weiss, 3: blau, 4: rot, 5: grün): ");
+            try
+            {
+                string farbe = Console.ReadLine();
+                geraet.Farbe = (Farbe)Enum.Parse(typeof(Farbe), farbe);
+                int f = Convert.ToInt32(farbe);
+                if (f < 0 || f > 5)
+                {
+                    Console.WriteLine("Falsche Eingabe: Nur Zahlen zwischen 0 und 5 möglich! Neuer Versuch: ");
+                    Console.Write("Bitte geben Sie die Farbe ein (0: schwarz, 1: grau, 2: weiss, 3: blau, 4: rot, 5: grün): ");
+                    farbe = Console.ReadLine();
+                    geraet.Farbe = (Farbe)Enum.Parse(typeof(Farbe), farbe);
+                    int f1 = Convert.ToInt32(farbe);
+                    if (f1 < 0 || f1 > 5)
+                    {
+                        Console.WriteLine("Falsche Eingabe: Nur Zahlen zwischen 0 und 5 möglich!");
+                    }
+                }
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine("Falsche Eingabe: Nur Zahlen zwischen 0 und 5 möglich! Neuer Versuch: ");
+                Console.Write("Bitte geben Sie die Farbe ein (0: schwarz, 1: grau, 2: weiss, 3: blau, 4: rot, 5: grün): ");
+                try
+                {
+                    string farbe = Console.ReadLine();
+                    geraet.Farbe = (Farbe)Enum.Parse(typeof(Farbe), farbe);
+                    int f = Convert.ToInt32(farbe);
+                    if (f < 0 || f > 5)
+                    {
+                        Console.WriteLine("Falsche Eingabe: Nur Zahlen zwischen 0 und 5 möglich! Neuer Versuch: ");
+                        Console.Write("Bitte geben Sie die Farbe ein (0: schwarz, 1: grau, 2: weiss, 3: blau, 4: rot, 5: grün): ");
+                        farbe = Console.ReadLine();
+                        geraet.Farbe = (Farbe)Enum.Parse(typeof(Farbe), farbe);
+                        int f1 = Convert.ToInt32(farbe);
+                        if (f1 < 0 || f1 > 5)
+                        {
+                            Console.WriteLine("Falsche Eingabe: Nur Zahlen zwischen 0 und 5 möglich!");
+                        }
+                    }
+                }
+                catch (FormatException e1)
+                {
+                    Console.WriteLine("Falsche Eingabe: Nur Zahlen zwischen 0 und 5 möglich!");
+
+                }
+            }
+            Console.Write("Bitte geben Sie den Kaufpreis ein: ");
+            try
+            {
+                string preis = Console.ReadLine();
+                geraet.Kaufpreis = Convert.ToDouble(preis);
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine("Falsche Eingabe: Nur Zahlen mit Dezimalstellen erlaubt! Neuer Versuch: ");
+                Console.Write("Bitte geben Sie den Kaufpreis ein: ");
+                try
+                {
+                    string preis = Console.ReadLine();
+                    geraet.Kaufpreis = Convert.ToDouble(preis);
+                }
+                catch (FormatException e1)
+                {
+                    Console.WriteLine("Falsche Eingabe: Nur Zahlen mit Dezimalstellen erlaubt!");
+
+                }
+            }
         }
         static Smartphone ErfasseSmartphone()
         {
@@ -288,8 +388,19 @@ namespace GeraeteVerwaltung_Pruefung1
             Smartphone smartphone = new Smartphone();
             ErfasseGeraeteDaten(smartphone);
 
-            Console.Write("Bitte geben Sie an, ob das Smartphone über eine MicroSD-Card Slot verfügt(J / N): ");
+            Console.Write("Bitte geben Sie an, ob das Smartphone über eine MicroSD-Card Slot verfügt (J / N): ");
             string sdcardslot = Console.ReadLine();
+            if (sdcardslot != "J" || sdcardslot != "N")
+            {
+                Console.WriteLine ("Falsche Eingabe: Nur \"J\" oder \"N\" möglich! Neuer Versuch: ");
+                Console.Write("Bitte geben Sie an, ob das Smartphone über eine MicroSD-Card Slot verfügt (J / N): ");
+                sdcardslot = Console.ReadLine();
+                if (sdcardslot != "J" || sdcardslot != "N")
+                {
+                    Console.WriteLine("Falsche Eingabe: Nur \"J\" oder \"N\" möglich!");
+
+                }
+            }
             if (sdcardslot == "J")
             {
                 sdcardslot = "true";
@@ -313,6 +424,17 @@ namespace GeraeteVerwaltung_Pruefung1
 
             Console.Write("Bitte geben Sie an, ob das Tablet über eine MicroSD-Card Slot verfügt(J / N): ");
             string sdcardslot = Console.ReadLine();
+            if (sdcardslot != "J" || sdcardslot != "N")
+            {
+                Console.WriteLine("Falsche Eingabe: Nur \"J\" oder \"N\" möglich! Neuer Versuch: ");
+                Console.Write("Bitte geben Sie an, ob das Smartphone über eine MicroSD-Card Slot verfügt (J / N): ");
+                sdcardslot = Console.ReadLine();
+                if (sdcardslot != "J" || sdcardslot != "N")
+                {
+                    Console.WriteLine("Falsche Eingabe: Nur \"J\" oder \"N\" möglich!");
+
+                }
+            }
             if (sdcardslot == "J")
             {
                 sdcardslot = "true";
@@ -323,6 +445,17 @@ namespace GeraeteVerwaltung_Pruefung1
 
             Console.WriteLine("Bitte geben Sie an, ob das Tablet über 4G verfügt:(J / N: ");
             string _4g = Console.ReadLine();
+            if (_4g != "J" || _4g != "N")
+            {
+                Console.WriteLine("Falsche Eingabe: Nur \"J\" oder \"N\" möglich! Neuer Versuch: ");
+                Console.Write("Bitte geben Sie an, ob das Tablet über eine MicroSD-Card Slot verfügt (J / N): ");
+                _4g = Console.ReadLine();
+                if (_4g != "J" || _4g != "N")
+                {
+                    Console.WriteLine("Falsche Eingabe: Nur \"J\" oder \"N\" möglich!");
+
+                }
+            }
             if (_4g == "J")
             {
                 _4g = "true";
@@ -345,8 +478,19 @@ namespace GeraeteVerwaltung_Pruefung1
             Console.Write("Bitte geben Sie die Grösse der SSD an: ");
             notebook.SSDGroesse = Console.ReadLine();
 
-            Console.Write("Bitte geben Sie an, ob das Notebook über eine beleuchtete Tastatur verfügt(J / N): ");
+            Console.Write("Bitte geben Sie an, ob das Notebook über eine beleuchtete Tastatur verfügt (J / N): ");
             string beleuchteteTastatur = Console.ReadLine();
+            if (beleuchteteTastatur != "J" || beleuchteteTastatur != "N")
+            {
+                Console.WriteLine("Falsche Eingabe: Nur \"J\" oder \"N\" möglich! Neuer Versuch: ");
+                Console.Write("Bitte geben Sie an, ob das Notebook über eine beleuchtete Tastatur verfügt (J / N): ");
+                beleuchteteTastatur = Console.ReadLine();
+                if (beleuchteteTastatur != "J" || beleuchteteTastatur != "N")
+                {
+                    Console.WriteLine("Falsche Eingabe: Nur \"J\" oder \"N\" möglich!");
+
+                }
+            }
             if (beleuchteteTastatur == "J")
             {
                 beleuchteteTastatur = "true";
@@ -355,8 +499,19 @@ namespace GeraeteVerwaltung_Pruefung1
             else beleuchteteTastatur = "false";
             notebook.BeleuchteteTastatur = Boolean.Parse(beleuchteteTastatur);
 
-            Console.WriteLine("Bitte geben Sie an, ob das Notebook über einen HDMI-Anschluss verfügt:(J / N: ");
+            Console.WriteLine("Bitte geben Sie an, ob das Notebook über einen HDMI-Anschluss verfügt (J / N: ");
             string hdmiAnschluss = Console.ReadLine();
+            if (hdmiAnschluss != "J" || hdmiAnschluss != "N")
+            {
+                Console.WriteLine("Falsche Eingabe: Nur \"J\" oder \"N\" möglich! Neuer Versuch: ");
+                Console.Write("Bitte geben Sie an, ob das Notebook über einen HDMI-Anschluss verfügt (J / N: ");
+                hdmiAnschluss = Console.ReadLine();
+                if (hdmiAnschluss != "J" || hdmiAnschluss != "N")
+                {
+                    Console.WriteLine("Falsche Eingabe: Nur \"J\" oder \"N\" möglich!");
+
+                }
+            }
             if (hdmiAnschluss == "J")
             {
                 hdmiAnschluss = "true";
@@ -376,11 +531,30 @@ namespace GeraeteVerwaltung_Pruefung1
                     Console.WriteLine(ger);
             }
         }
-       
+        static void ModifizereSmartphone(Smartphone[] geraeteliste)
+        {
+            Console.Write("Inhalt Micro-SDCard Slot = {0}", geraeteliste[index].MicroSDCardSlot + " > Aenderung: (J / N): ");
+            string sdcardslot = Console.ReadLine();
+            if (sdcardslot != "")
+            {
+                if (sdcardslot == "J")
+                {
+                    sdcardslot = "true";
+                    Console.WriteLine("Inhalt Maximale Speichererweiterung = {0}", geraeteliste[index].MaxSpeichererweiterung + " > Aenderung:");
+                    string maxSpeichererweiterung = Console.ReadLine();
+                    if (maxSpeichererweiterung != "")
+                    {
+                        geraeteliste[index].MaxSpeichererweiterung = maxSpeichererweiterung;
+                    }
+                }
+                else sdcardslot = "false";
+                geraeteliste[index].MicroSDCardSlot = Boolean.Parse(sdcardslot);
+            }
+        }
+
+
         static void ModifizereTablet(Tablet[] geraeteliste)
         {
-            Tablet tablet = new Tablet();
-
             Console.Write("Inhalt Micro-SDCard Slot = {0}", geraeteliste[index].MicroSDCardSlot + " > Aenderung: (J / N): ");
             string sdcardslot = Console.ReadLine();
             if (sdcardslot != "")
@@ -405,8 +579,41 @@ namespace GeraeteVerwaltung_Pruefung1
                 geraeteliste[index]._4G = Boolean.Parse(_4g);
             }
         }
+        static void ModifizereNotebook(Notebook[] geraeteliste)
+        {
+            Console.WriteLine("Inhalt SSD-Groesse = {0}", geraeteliste[index].SSDGroesse + " > Aenderung: ");
+            string ssdGroesse = Console.ReadLine();
+            if (ssdGroesse != "")
+            {
+                geraeteliste[index].SSDGroesse = ssdGroesse;
+            }
+            Console.Write("Inhalt Beleuchtete Tastatur = {0}", geraeteliste[index].BeleuchteteTastatur + " > Aenderung: (J / N): ");
+            string beleuchteteTastatur = Console.ReadLine();
+            if (beleuchteteTastatur != "")
+            {
+                if (beleuchteteTastatur == "J")
+                {
+                    beleuchteteTastatur = "true";
 
-        static void ModifiziereGeraet(Geraet[] geraeteliste)
+                }
+                else beleuchteteTastatur = "false";
+                geraeteliste[index].BeleuchteteTastatur = Boolean.Parse(beleuchteteTastatur);
+            }
+            Console.Write("Inhalt HDMI-Anschluss = {0}", geraeteliste[index].HDMIAnschluss + " > Aenderung: (J / N): ");
+            string hdmiAnschluss = Console.ReadLine();
+            if (hdmiAnschluss != "")
+            {
+                if (hdmiAnschluss == "J")
+                {
+                    hdmiAnschluss = "true";
+
+                }
+                else hdmiAnschluss = "false";
+                geraeteliste[index].BeleuchteteTastatur = Boolean.Parse(hdmiAnschluss);
+            }
+        }
+
+static void ModifiziereGeraet(Geraet[] geraeteliste)
         {
             Console.WriteLine("Gerät modifizieren");
             Console.WriteLine("------------------");
@@ -423,12 +630,13 @@ namespace GeraeteVerwaltung_Pruefung1
             Type b = typeof(Tablet);
             if (a.Equals(b))
             {
-       //     ModifizereTablet(geraet as Tablet);
+                
+            // ModifizereTablet();
             }
             Type c = typeof(Notebook);
             if (a.Equals(c))
             {
-                //     ModifizereNotebook(geraeteliste);
+            // ModifizereNotebook(geraeteliste);
             }
             Type d = typeof(Smartphone);
             if (a.Equals(d))
