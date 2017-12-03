@@ -531,7 +531,7 @@ namespace GeraeteVerwaltung_Pruefung1
                     Console.WriteLine(ger);
             }
         }
-        static void ModifizereSmartphone(Smartphone[] geraeteliste)
+        static void ModifiziereSmartphone(Smartphone[] geraeteliste)
         {
             Console.Write("Inhalt Micro-SDCard Slot = {0}", geraeteliste[index].MicroSDCardSlot + " > Aenderung: (J / N): ");
             string sdcardslot = Console.ReadLine();
@@ -564,7 +564,7 @@ namespace GeraeteVerwaltung_Pruefung1
         }
 
 
-        static void ModifizereTablet(Tablet[] geraeteliste)
+        static void ModifiziereTablet(Tablet[] geraeteliste)
         {
             Console.Write("Inhalt Micro-SDCard Slot = {0}", geraeteliste[index].MicroSDCardSlot + " > Aenderung: (J / N): ");
             string sdcardslot = Console.ReadLine();
@@ -613,7 +613,7 @@ namespace GeraeteVerwaltung_Pruefung1
             }
             
         }
-        static void ModifizereNotebook(Notebook[] geraeteliste)
+        static void ModifiziereNotebook(Notebook[] geraeteliste)
         {
             Console.WriteLine("Inhalt SSD-Groesse = {0}", geraeteliste[index].SSDGroesse + " > Aenderung: ");
             string ssdGroesse = Console.ReadLine();
@@ -686,18 +686,18 @@ static void ModifiziereGeraet(Geraet[] geraeteliste)
                 Type b = typeof(Tablet);
                 if (a.Equals(b))
                 {
-
-                    // ModifizereTablet(geraeteliste);
+                    
+                    ModifiziereTablet((Tablet[]) geraeteliste);
                 }
                 Type c = typeof(Notebook);
                 if (a.Equals(c))
                 {
-                    // ModifizereNotebook(geraeteliste);
+                    ModifiziereNotebook((Notebook[]) geraeteliste);
                 }
                 Type d = typeof(Smartphone);
                 if (a.Equals(d))
                 {
-                    // ModifizereSmartphone(geraeteliste);
+                    ModifiziereSmartphone((Smartphone[]) geraeteliste);
                 }
             }
             catch (FormatException e)
