@@ -537,6 +537,17 @@ namespace GeraeteVerwaltung_Pruefung1
             string sdcardslot = Console.ReadLine();
             if (sdcardslot != "")
             {
+                if (sdcardslot != "J" || sdcardslot != "N")
+                {
+                    Console.WriteLine("Falsche Eingabe: Nur \"J\" oder \"N\" möglich! Neuer Versuch: ");
+                    Console.Write("Inhalt Micro-SDCard Slot = {0}", geraeteliste[index].MicroSDCardSlot + " > Aenderung: (J / N): ");
+                    sdcardslot = Console.ReadLine();
+                    if (sdcardslot != "J" || sdcardslot != "N")
+                    {
+                        Console.WriteLine("Falsche Eingabe: Nur \"J\" oder \"N\" möglich!");
+
+                    }
+                }
                 if (sdcardslot == "J")
                 {
                     sdcardslot = "true";
@@ -559,6 +570,17 @@ namespace GeraeteVerwaltung_Pruefung1
             string sdcardslot = Console.ReadLine();
             if (sdcardslot != "")
             {
+                if (sdcardslot != "J" || sdcardslot != "N")
+                {
+                    Console.WriteLine("Falsche Eingabe: Nur \"J\" oder \"N\" möglich! Neuer Versuch: ");
+                    Console.Write("Inhalt Micro-SDCard Slot = {0}", geraeteliste[index].MicroSDCardSlot + " > Aenderung: (J / N): ");
+                    sdcardslot = Console.ReadLine();
+                    if (sdcardslot != "J" || sdcardslot != "N")
+                    {
+                        Console.WriteLine("Falsche Eingabe: Nur \"J\" oder \"N\" möglich!");
+
+                    }
+                }
                 if (sdcardslot == "J")
                 {
                     sdcardslot = "true";
@@ -571,6 +593,17 @@ namespace GeraeteVerwaltung_Pruefung1
             string _4g = Console.ReadLine();
             if (_4g != "")
             {
+                if (_4g != "J" || _4g != "N")
+                {
+                    Console.WriteLine("Falsche Eingabe: Nur \"J\" oder \"N\" möglich! Neuer Versuch: ");
+                    Console.Write("Inhalt 4G = {0}", geraeteliste[index]._4G + " > Aenderung: (J / N): ");
+                    _4g = Console.ReadLine();
+                    if (_4g != "J" || _4g != "N")
+                    {
+                        Console.WriteLine("Falsche Eingabe: Nur \"J\" oder \"N\" möglich!");
+
+                    }
+                }
                 if (_4g == "J")
                 {
                     _4g = "true";
@@ -578,6 +611,7 @@ namespace GeraeteVerwaltung_Pruefung1
                 else _4g = "false";
                 geraeteliste[index]._4G = Boolean.Parse(_4g);
             }
+            
         }
         static void ModifizereNotebook(Notebook[] geraeteliste)
         {
@@ -591,6 +625,17 @@ namespace GeraeteVerwaltung_Pruefung1
             string beleuchteteTastatur = Console.ReadLine();
             if (beleuchteteTastatur != "")
             {
+                if (beleuchteteTastatur != "J" || beleuchteteTastatur != "N")
+                {
+                    Console.WriteLine("Falsche Eingabe: Nur \"J\" oder \"N\" möglich! Neuer Versuch: ");
+                    Console.Write("Inhalt Beleuchtete Tastatur = {0}", geraeteliste[index].BeleuchteteTastatur + " > Aenderung: (J / N): ");
+                    beleuchteteTastatur = Console.ReadLine();
+                    if (beleuchteteTastatur != "J" || beleuchteteTastatur != "N")
+                    {
+                        Console.WriteLine("Falsche Eingabe: Nur \"J\" oder \"N\" möglich!");
+
+                    }
+                }
                 if (beleuchteteTastatur == "J")
                 {
                     beleuchteteTastatur = "true";
@@ -603,13 +648,24 @@ namespace GeraeteVerwaltung_Pruefung1
             string hdmiAnschluss = Console.ReadLine();
             if (hdmiAnschluss != "")
             {
+                if (hdmiAnschluss != "J" || hdmiAnschluss != "N")
+                {
+                    Console.WriteLine("Falsche Eingabe: Nur \"J\" oder \"N\" möglich! Neuer Versuch: ");
+                    Console.Write("Inhalt HDMI-Anschluss = {0}", geraeteliste[index].HDMIAnschluss + " > Aenderung: (J / N): ");
+                    hdmiAnschluss = Console.ReadLine();
+                    if (hdmiAnschluss != "J" || hdmiAnschluss != "N")
+                    {
+                        Console.WriteLine("Falsche Eingabe: Nur \"J\" oder \"N\" möglich!");
+
+                    }
+                }
                 if (hdmiAnschluss == "J")
                 {
                     hdmiAnschluss = "true";
 
                 }
                 else hdmiAnschluss = "false";
-                geraeteliste[index].BeleuchteteTastatur = Boolean.Parse(hdmiAnschluss);
+                geraeteliste[index].HDMIAnschluss = Boolean.Parse(hdmiAnschluss);
             }
         }
 
@@ -619,66 +675,41 @@ static void ModifiziereGeraet(Geraet[] geraeteliste)
             Console.WriteLine("------------------");
 
             
-            Geraet geraet = new Geraet();
-
             Console.WriteLine("Bitte geben Sie die ID des zu modifizierenden Geräts an: ");
-            string id = Console.ReadLine();
-            int ind = Convert.ToInt32(id);
-            index = Array.FindIndex(geraeteliste, row => row.Id == ind);
-            ModifizereGeraete(geraeteliste);
-            Type a = geraeteliste[index].GetType();
-            Type b = typeof(Tablet);
-            if (a.Equals(b))
+            try
             {
-                
-            // ModifizereTablet();
+                string id = Console.ReadLine();
+                int ind = Convert.ToInt32(id);
+                index = Array.FindIndex(geraeteliste, row => row.Id == ind);
+                ModifizereGeraete(geraeteliste);
+                Type a = geraeteliste[index].GetType();
+                Type b = typeof(Tablet);
+                if (a.Equals(b))
+                {
+
+                    // ModifizereTablet(geraeteliste);
+                }
+                Type c = typeof(Notebook);
+                if (a.Equals(c))
+                {
+                    // ModifizereNotebook(geraeteliste);
+                }
+                Type d = typeof(Smartphone);
+                if (a.Equals(d))
+                {
+                    // ModifizereSmartphone(geraeteliste);
+                }
             }
-            Type c = typeof(Notebook);
-            if (a.Equals(c))
+            catch (FormatException e)
             {
-            // ModifizereNotebook(geraeteliste);
+                Console.WriteLine("Es muss eine Eingabe gemacht werden! Bitte eine Taste drücken und neu wählen. ");
             }
-            Type d = typeof(Smartphone);
-            if (a.Equals(d))
+            catch (NullReferenceException e)
             {
-                //     ModifizereSmartphone(geraeteliste);
+                Console.WriteLine("Es muss eine Eingabe gemacht werden! Bitte eine Taste drücken und neu wählen. ");
             }
-
-
-
-
-
-
-            /*      AbfrageModifikationsDaten(geraeteliste);
-
-                  Console.WriteLine("Bitte geben Sie die ID des zu modifizierenden Geräts an: ");
-                  string id = Console.ReadLine();
-                  int ind = Convert.ToInt32(id);
-                  int index = Array.FindIndex(geraeteliste, row => row.Id == ind);
-                  Type type = geraeteliste[index].GetType();
-                  if (type.Equals("GeraeteVerwaltung_Pruefung1.Tablet"))
-                  {
-                      Tablet tablet = new Tablet();
-                      Console.WriteLine("Inhalt Marke = {0}", geraeteliste[index].Marke+"Aenderung: ");
-                     // ErfasseGeraeteDaten(tablet);
-                  }
-
-
-                  // geraeteliste[index].Marke = "ASUS";
-
-
-
-                 // Array.ForEach(geraeteliste[index], Console.WriteLine(geraet.Marke));
-
-
-                /*  foreach (var element in geraeteliste)
-                  {
-                      Geraet ger = element as Type
-                      Console.WriteLine(ger.ToString());
-                  }   */
-
-
-        }
+     }
+        
         static void ModifizereGeraete(Geraet[] geraeteliste)
         {
             Geraet geraet = new Geraet();
@@ -728,12 +759,33 @@ static void ModifiziereGeraet(Geraet[] geraeteliste)
                 geraeteliste[index].Bildschirmgroesse = bildschirmgroesse;
             }
             Console.WriteLine("Inhalt Akkulaufzeit = {0}", geraeteliste[index].Akkulaufzeit + " > Aenderung: ");
-            string akkulaufzeit = Console.ReadLine();
-            
-            if (akkulaufzeit != "")
+            try
             {
-                geraeteliste[index].Akkulaufzeit = Convert.ToDouble(akkulaufzeit);
+                string akkulaufzeit = Console.ReadLine();
+                if (akkulaufzeit != "")
+                {
+                    geraeteliste[index].Akkulaufzeit = Convert.ToDouble(akkulaufzeit);
+                }
             }
+            catch (FormatException e)
+            {
+                Console.WriteLine("Falsche Eingabe, möglich sind nur Zahlen (allenfalls mit Dezimalstellen). Neuer Versuch: ");
+                Console.Write("Inhalt Akkulaufzeit = {0}", geraeteliste[index].Akkulaufzeit + " > Aenderung: ");
+                try
+                {
+                    string akkulaufzeit = Console.ReadLine();
+                    if (akkulaufzeit != "")
+                    {
+                        geraeteliste[index].Akkulaufzeit = Convert.ToDouble(akkulaufzeit);
+                    }
+                }
+                catch (FormatException e1)
+                {
+                    Console.WriteLine("Falsche Eingabe, möglich sind nur Zahlen (allenfalls mit Dezimalstellen).");
+
+                }
+            }
+                
             Console.WriteLine("Inhalt Prozessortyp = {0}", geraeteliste[index].Prozessortyp + " > Aenderung: ");
             string prozessortyp = Console.ReadLine();
             if (prozessortyp != "")
@@ -741,27 +793,120 @@ static void ModifiziereGeraet(Geraet[] geraeteliste)
                 geraeteliste[index].Prozessortyp = prozessortyp;
             }
             Console.WriteLine("Inhalt Anzahl Prozessoren = {0}", geraeteliste[index].AnzahlProzessoren + " > Aenderung: ");
-            string anzahlProzessoren = Console.ReadLine();
-
-            if (anzahlProzessoren != "")
+            try
             {
-                geraeteliste[index].AnzahlProzessoren = Convert.ToInt32(anzahlProzessoren);
+                string anzahlprozessoren = Console.ReadLine();
+                if (anzahlprozessoren != "")
+                {
+                    geraeteliste[index].AnzahlProzessoren = Convert.ToInt32(anzahlprozessoren);
+                }
+
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine("Falsche Eingabe, möglich sind nur ganze Zahlen. Neuer Versuch: ");
+                Console.Write("Inhalt Anzahl Prozessoren = {0}", geraeteliste[index].AnzahlProzessoren + " > Aenderung: ");
+                try
+                {
+                    string anzahlprozessoren = Console.ReadLine();
+                    if (anzahlprozessoren != "")
+                    {
+                        geraeteliste[index].AnzahlProzessoren = Convert.ToInt32(anzahlprozessoren);
+                    }
+                }
+                catch (FormatException e1)
+                {
+                    Console.WriteLine("Falsche Eingabe, möglich sind nur ganze Zahlen.");
+
+                }
             }
             Console.WriteLine("Inhalt Farbe = {0}", geraeteliste[index].Farbe + " > Aenderung (0: schwarz, 1: grau, 2: weiss, 3: blau, 4: rot, 5: grün): ");
-            string farbe = Console.ReadLine();
-
-            if (farbe != "")
+            try
             {
-                geraeteliste[index].Farbe = (Farbe)Enum.Parse(typeof(Farbe), farbe);
+                string farbe = Console.ReadLine();
+                if (farbe != "")
+                {
+                    int f = Convert.ToInt32(farbe);
+                    if (f < 0 || f > 5)
+                    {
+                        Console.WriteLine("Falsche Eingabe: Nur Zahlen zwischen 0 und 5 möglich! Neuer Versuch: ");
+                        Console.Write("Inhalt Farbe = {0}", geraeteliste[index].Farbe + " > Aenderung (0: schwarz, 1: grau, 2: weiss, 3: blau, 4: rot, 5: grün): ");
+                        farbe = Console.ReadLine();
+                        if (farbe != "")
+                        {
+                            int f1 = Convert.ToInt32(farbe);
+                            if (f1 < 0 || f1 > 5)
+                            {
+                                Console.WriteLine("Falsche Eingabe: Nur Zahlen zwischen 0 und 5 möglich!");
+                            }
+                        }
+                    }
+                    geraeteliste[index].Farbe = (Farbe)Enum.Parse(typeof(Farbe), farbe);
+                }
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine("Falsche Eingabe: Nur Zahlen zwischen 0 und 5 möglich! Neuer Versuch: ");
+                Console.Write("Inhalt Farbe = {0}", geraeteliste[index].Farbe + " > Aenderung (0: schwarz, 1: grau, 2: weiss, 3: blau, 4: rot, 5: grün): ");
+                try
+                {
+                    string farbe = Console.ReadLine();
+                    if (farbe != "")
+                    {
+                        int f = Convert.ToInt32(farbe);
+                        if (f < 0 || f > 5)
+                        {
+                            Console.WriteLine("Falsche Eingabe: Nur Zahlen zwischen 0 und 5 möglich! Neuer Versuch: ");
+                            Console.Write("Inhalt Farbe = {0}", geraeteliste[index].Farbe + " > Aenderung (0: schwarz, 1: grau, 2: weiss, 3: blau, 4: rot, 5: grün): ");
+                            farbe = Console.ReadLine();
+                            if (farbe != "")
+                            {
+                                int f1 = Convert.ToInt32(farbe);
+                                if (f1 < 0 || f1 > 5)
+                                {
+                                    Console.WriteLine("Falsche Eingabe: Nur Zahlen zwischen 0 und 5 möglich!");
+                                }
+                            }
+                        }
+                        geraeteliste[index].Farbe = (Farbe)Enum.Parse(typeof(Farbe), farbe);
+                    }
+
+                }
+                catch (FormatException e1)
+                {
+                    Console.WriteLine("Falsche Eingabe: Nur Zahlen zwischen 0 und 5 möglich!");
+
+                }
             }
             Console.WriteLine("Inhalt Kaufpreis = {0}", geraeteliste[index].Kaufpreis + " > Aenderung: ");
-            string kaufpreis = Console.ReadLine();
-
-            if (kaufpreis != "")
+            try
             {
-                geraeteliste[index].Kaufpreis = Convert.ToDouble(kaufpreis);
+                string kaufpreis = Console.ReadLine();
+                if (kaufpreis != "")
+                {
+                    geraeteliste[index].Kaufpreis = Convert.ToDouble(kaufpreis);
+                }
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine("Falsche Eingabe, möglich sind nur Zahlen (allenfalls mit Dezimalstellen). Neuer Versuch: ");
+                Console.Write("Inhalt Kaufpreis = {0}", geraeteliste[index].Kaufpreis + " > Aenderung: ");
+                try
+                {
+                    string kaufpreis = Console.ReadLine();
+                    if (kaufpreis != "")
+                    {
+                        geraeteliste[index].Kaufpreis = Convert.ToDouble(kaufpreis);
+                    }
+                }
+                catch (FormatException e1)
+                {
+                    Console.WriteLine("Falsche Eingabe, möglich sind nur Zahlen (allenfalls mit Dezimalstellen).");
+
+                }
             }
         }
+        
 
         static Geraet LoescheGeraet(Geraet[] geraeteliste)
         {
@@ -769,14 +914,24 @@ static void ModifiziereGeraet(Geraet[] geraeteliste)
             Console.WriteLine("-------------");
 
             Geraet geraet = new Geraet();
-
+            GeraeteID = (Array.FindLastIndex(geraeteliste, n => n != null) + 1);
+            
             Console.WriteLine("Bitte geben Sie die ID des zu löschenden Geräts an: ");
-            string id = Console.ReadLine();
-            int ind = Convert.ToInt32(id);
-            int index = Array.FindIndex(geraeteliste, row => row.Id == ind);
-            Array.Clear(geraeteliste, index, 1);
-            Console.WriteLine("Gerät mit ID {0} wurde gelöscht.", ind);
+            try
+            {
+                string id = Console.ReadLine();
+                int ind = Convert.ToInt32(id);
+                int index = Array.FindIndex(geraeteliste, row => row.Id == ind);
+                Array.Clear(geraeteliste, index, 1);
+                Console.WriteLine("Gerät mit ID {0} wurde gelöscht.", ind);
 
+                return geraet;
+            }
+           
+            catch (FormatException e) 
+            {Console.WriteLine("Falsche Eingabe: Es sind nur Zahlen zwischen 1 und {0} möglich. Bitte eine Taste drücken und neu wählen.", GeraeteID);}
+            catch (NullReferenceException e) 
+            { Console.WriteLine("Falsche Eingabe: Es sind nur Zahlen zwischen 1 und {0} möglich. Bitte eine Taste drücken und neu wählen.", GeraeteID); }
             return geraet;
         }
 
