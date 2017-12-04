@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GeraeteVerwaltung_Pruefung1
 {
-    class Tablet : Geraet
+    class Tablet : Geraet 
     {
         public bool MicroSDCardSlot { get; set; }
         public bool _4G { get; set; }
