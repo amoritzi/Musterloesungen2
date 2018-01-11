@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UhrApp", "UhrApp\UhrApp.csproj", "{55C1A841-DA59-460C-AA4A-1735D4BF7C3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUserControlApp", "..\..\..\Beispiele\08 Windows Forms\TestUserControlApp\TestUserControlApp\TestUserControlApp.csproj", "{FD544D3F-9AAF-48D2-8CDE-8C558E769578}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55C1A841-DA59-460C-AA4A-1735D4BF7C3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55C1A841-DA59-460C-AA4A-1735D4BF7C3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55C1A841-DA59-460C-AA4A-1735D4BF7C3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55C1A841-DA59-460C-AA4A-1735D4BF7C3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD544D3F-9AAF-48D2-8CDE-8C558E769578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD544D3F-9AAF-48D2-8CDE-8C558E769578}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD544D3F-9AAF-48D2-8CDE-8C558E769578}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD544D3F-9AAF-48D2-8CDE-8C558E769578}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F74F711-15B2-468F-934E-77F6D02B54BB}
+	EndGlobalSection
+EndGlobal
