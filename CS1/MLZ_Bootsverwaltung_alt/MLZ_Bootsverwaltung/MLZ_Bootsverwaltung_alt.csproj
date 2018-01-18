@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D7680497-C9B3-469A-973B-E00AF4D17B22}</ProjectGuid>
+    <ProjectGuid>{4BACBC5B-5F48-41F7-BF00-BFAD1DF8DE6A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>MLZ_Bootsverwaltung</RootNamespace>
     <AssemblyName>MLZ_Bootsverwaltung</AssemblyName>
@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Boot.cs" />
-    <Compile Include="BootController.cs" />
+    <Compile Include="BootMethoden.cs" />
     <Compile Include="Farbe.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -55,13 +55,22 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Kajak.cs" />
+    <Compile Include="Kajakform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kajakform.Designer.cs">
+      <DependentUpon>Kajakform.cs</DependentUpon>
+    </Compile>
     <Compile Include="Katamaran.cs" />
     <Compile Include="Motorboot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Segelboot.cs" />
+    <Compile Include="Segelboor.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kajakform.resx">
+      <DependentUpon>Kajakform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -72,7 +81,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Properties\DataSources\Boot.datasource" />
+    <None Include="Properties\DataSources\BootMethoden.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

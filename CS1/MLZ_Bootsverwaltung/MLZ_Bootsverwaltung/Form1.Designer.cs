@@ -28,177 +28,186 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.erfassenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiKajak = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiKatamaran = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiMotorboot = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiSegelboot = new System.Windows.Forms.ToolStripMenuItem();
-            this.bearbeitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.löschenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.anzeigenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiListedetailliert = new System.Windows.Forms.ToolStripMenuItem();
-            this.beendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bootdataGridView = new System.Windows.Forms.DataGridView();
-            this.bootMethodenBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lblList = new System.Windows.Forms.Label();
-            this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bootdataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bootMethodenBindingSource)).BeginInit();
+            this.LblMarke = new System.Windows.Forms.Label();
+            this.TxbMarke = new System.Windows.Forms.TextBox();
+            this.LblModell = new System.Windows.Forms.Label();
+            this.TxbModell = new System.Windows.Forms.TextBox();
+            this.LblFarbe = new System.Windows.Forms.Label();
+            this.CmbFarbe = new System.Windows.Forms.ComboBox();
+            this.LblNummernschild = new System.Windows.Forms.Label();
+            this.TxbNummernschild = new System.Windows.Forms.TextBox();
+            this.BtnSave = new System.Windows.Forms.Button();
+            this.BtnAbbrechen = new System.Windows.Forms.Button();
+            this.BtnDelete = new System.Windows.Forms.Button();
+            this.BtnMutieren = new System.Windows.Forms.Button();
+            this.BtnListe = new System.Windows.Forms.Button();
+            this.LbxBootsliste = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // LblMarke
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.erfassenToolStripMenuItem,
-            this.bearbeitenToolStripMenuItem,
-            this.löschenToolStripMenuItem,
-            this.anzeigenToolStripMenuItem,
-            this.beendenToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(851, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.LblMarke.AutoSize = true;
+            this.LblMarke.Location = new System.Drawing.Point(564, 47);
+            this.LblMarke.Name = "LblMarke";
+            this.LblMarke.Size = new System.Drawing.Size(37, 13);
+            this.LblMarke.TabIndex = 2;
+            this.LblMarke.Text = "Marke";
             // 
-            // erfassenToolStripMenuItem
+            // TxbMarke
             // 
-            this.erfassenToolStripMenuItem.CheckOnClick = true;
-            this.erfassenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiKajak,
-            this.tsmiKatamaran,
-            this.tsmiMotorboot,
-            this.tsmiSegelboot});
-            this.erfassenToolStripMenuItem.Name = "erfassenToolStripMenuItem";
-            this.erfassenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.erfassenToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.erfassenToolStripMenuItem.Text = "Erfassen";
-            this.erfassenToolStripMenuItem.Click += new System.EventHandler(this.erfassenToolStripMenuItem_Click);
+            this.TxbMarke.Location = new System.Drawing.Point(647, 41);
+            this.TxbMarke.Name = "TxbMarke";
+            this.TxbMarke.Size = new System.Drawing.Size(266, 20);
+            this.TxbMarke.TabIndex = 3;
+            this.TxbMarke.TextChanged += new System.EventHandler(this.TxbMarke_TextChanged);
             // 
-            // tsmiKajak
+            // LblModell
             // 
-            this.tsmiKajak.Name = "tsmiKajak";
-            this.tsmiKajak.Size = new System.Drawing.Size(152, 22);
-            this.tsmiKajak.Text = "Kajak";
-            this.tsmiKajak.Click += new System.EventHandler(this.tsmiKajak_Click);
+            this.LblModell.AutoSize = true;
+            this.LblModell.Location = new System.Drawing.Point(564, 77);
+            this.LblModell.Name = "LblModell";
+            this.LblModell.Size = new System.Drawing.Size(38, 13);
+            this.LblModell.TabIndex = 4;
+            this.LblModell.Text = "Modell";
             // 
-            // tsmiKatamaran
+            // TxbModell
             // 
-            this.tsmiKatamaran.Name = "tsmiKatamaran";
-            this.tsmiKatamaran.Size = new System.Drawing.Size(152, 22);
-            this.tsmiKatamaran.Text = "Katamaran";
-            this.tsmiKatamaran.Click += new System.EventHandler(this.tsmiKatamaran_Click);
+            this.TxbModell.Location = new System.Drawing.Point(647, 70);
+            this.TxbModell.Name = "TxbModell";
+            this.TxbModell.Size = new System.Drawing.Size(266, 20);
+            this.TxbModell.TabIndex = 5;
             // 
-            // tsmiMotorboot
+            // LblFarbe
             // 
-            this.tsmiMotorboot.Name = "tsmiMotorboot";
-            this.tsmiMotorboot.Size = new System.Drawing.Size(152, 22);
-            this.tsmiMotorboot.Text = "Motorboot";
-            this.tsmiMotorboot.Click += new System.EventHandler(this.tsmiMotorboot_Click);
+            this.LblFarbe.AutoSize = true;
+            this.LblFarbe.Location = new System.Drawing.Point(564, 106);
+            this.LblFarbe.Name = "LblFarbe";
+            this.LblFarbe.Size = new System.Drawing.Size(34, 13);
+            this.LblFarbe.TabIndex = 6;
+            this.LblFarbe.Text = "Farbe";
             // 
-            // tsmiSegelboot
+            // CmbFarbe
             // 
-            this.tsmiSegelboot.Name = "tsmiSegelboot";
-            this.tsmiSegelboot.Size = new System.Drawing.Size(152, 22);
-            this.tsmiSegelboot.Text = "Segelboot";
-            this.tsmiSegelboot.Click += new System.EventHandler(this.tsmiSegelboot_Click);
+            this.CmbFarbe.FormattingEnabled = true;
+            this.CmbFarbe.Location = new System.Drawing.Point(647, 96);
+            this.CmbFarbe.Name = "CmbFarbe";
+            this.CmbFarbe.Size = new System.Drawing.Size(121, 21);
+            this.CmbFarbe.TabIndex = 7;
+            this.CmbFarbe.SelectedIndexChanged += new System.EventHandler(this.CmbFarbe_SelectedIndexChanged);
             // 
-            // bearbeitenToolStripMenuItem
+            // LblNummernschild
             // 
-            this.bearbeitenToolStripMenuItem.Name = "bearbeitenToolStripMenuItem";
-            this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
-            this.bearbeitenToolStripMenuItem.Text = "Bearbeiten";
-            this.bearbeitenToolStripMenuItem.Click += new System.EventHandler(this.bearbeitenToolStripMenuItem_Click);
+            this.LblNummernschild.AutoSize = true;
+            this.LblNummernschild.Location = new System.Drawing.Point(564, 135);
+            this.LblNummernschild.Name = "LblNummernschild";
+            this.LblNummernschild.Size = new System.Drawing.Size(72, 13);
+            this.LblNummernschild.TabIndex = 8;
+            this.LblNummernschild.Text = "Nummernsch.";
             // 
-            // löschenToolStripMenuItem
+            // TxbNummernschild
             // 
-            this.löschenToolStripMenuItem.Name = "löschenToolStripMenuItem";
-            this.löschenToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.löschenToolStripMenuItem.Text = "Löschen";
-            this.löschenToolStripMenuItem.Click += new System.EventHandler(this.löschenToolStripMenuItem_Click);
+            this.TxbNummernschild.Location = new System.Drawing.Point(647, 128);
+            this.TxbNummernschild.Name = "TxbNummernschild";
+            this.TxbNummernschild.Size = new System.Drawing.Size(266, 20);
+            this.TxbNummernschild.TabIndex = 9;
             // 
-            // anzeigenToolStripMenuItem
+            // BtnSave
             // 
-            this.anzeigenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiListedetailliert});
-            this.anzeigenToolStripMenuItem.Name = "anzeigenToolStripMenuItem";
-            this.anzeigenToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-            this.anzeigenToolStripMenuItem.Text = "Anzeigen";
+            this.BtnSave.Location = new System.Drawing.Point(838, 363);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(64, 35);
+            this.BtnSave.TabIndex = 11;
+            this.BtnSave.Text = "Speichern";
+            this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
-            // tsmiListedetailliert
+            // BtnAbbrechen
             // 
-            this.tsmiListedetailliert.Name = "tsmiListedetailliert";
-            this.tsmiListedetailliert.Size = new System.Drawing.Size(152, 22);
-            this.tsmiListedetailliert.Text = "Liste detailliert";
-            this.tsmiListedetailliert.Click += new System.EventHandler(this.tsmiListedetailliert_Click);
+            this.BtnAbbrechen.Location = new System.Drawing.Point(583, 367);
+            this.BtnAbbrechen.Name = "BtnAbbrechen";
+            this.BtnAbbrechen.Size = new System.Drawing.Size(70, 35);
+            this.BtnAbbrechen.TabIndex = 12;
+            this.BtnAbbrechen.Text = "Abbrechen";
+            this.BtnAbbrechen.UseVisualStyleBackColor = true;
+            this.BtnAbbrechen.Click += new System.EventHandler(this.BtnAbbrechen_Click);
             // 
-            // beendenToolStripMenuItem
+            // BtnDelete
             // 
-            this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.beendenToolStripMenuItem.Text = "Beenden";
-            this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
+            this.BtnDelete.Location = new System.Drawing.Point(763, 366);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(59, 32);
+            this.BtnDelete.TabIndex = 13;
+            this.BtnDelete.Text = "Löschen";
+            this.BtnDelete.UseVisualStyleBackColor = true;
             // 
-            // bootdataGridView
+            // BtnMutieren
             // 
-            this.bootdataGridView.AutoGenerateColumns = false;
-            this.bootdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bootdataGridView.DataSource = this.bootMethodenBindingSource;
-            this.bootdataGridView.Location = new System.Drawing.Point(39, 56);
-            this.bootdataGridView.Name = "bootdataGridView";
-            this.bootdataGridView.Size = new System.Drawing.Size(781, 270);
-            this.bootdataGridView.TabIndex = 1;
+            this.BtnMutieren.Location = new System.Drawing.Point(672, 368);
+            this.BtnMutieren.Name = "BtnMutieren";
+            this.BtnMutieren.Size = new System.Drawing.Size(69, 32);
+            this.BtnMutieren.TabIndex = 14;
+            this.BtnMutieren.Text = "Bearbeiten";
+            this.BtnMutieren.UseVisualStyleBackColor = true;
             // 
-            // bootMethodenBindingSource
+            // BtnListe
             // 
-            this.bootMethodenBindingSource.DataSource = typeof(MLZ_Bootsverwaltung.BootMethoden);
+            this.BtnListe.Location = new System.Drawing.Point(30, 12);
+            this.BtnListe.Name = "BtnListe";
+            this.BtnListe.Size = new System.Drawing.Size(113, 22);
+            this.BtnListe.TabIndex = 15;
+            this.BtnListe.Text = "Bootsliste anzeigen";
+            this.BtnListe.UseVisualStyleBackColor = true;
+            this.BtnListe.Click += new System.EventHandler(this.BtnListe_Click);
             // 
-            // lblList
+            // LbxBootsliste
             // 
-            this.lblList.AutoSize = true;
-            this.lblList.Location = new System.Drawing.Point(36, 40);
-            this.lblList.Name = "lblList";
-            this.lblList.Size = new System.Drawing.Size(95, 13);
-            this.lblList.TabIndex = 2;
-            this.lblList.Text = "Liste der Eingaben";
+            this.LbxBootsliste.FormattingEnabled = true;
+            this.LbxBootsliste.Location = new System.Drawing.Point(30, 45);
+            this.LbxBootsliste.Name = "LbxBootsliste";
+            this.LbxBootsliste.Size = new System.Drawing.Size(516, 355);
+            this.LbxBootsliste.TabIndex = 16;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(851, 392);
-            this.Controls.Add(this.lblList);
-            this.Controls.Add(this.bootdataGridView);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.ClientSize = new System.Drawing.Size(925, 410);
+            this.Controls.Add(this.LbxBootsliste);
+            this.Controls.Add(this.BtnListe);
+            this.Controls.Add(this.BtnMutieren);
+            this.Controls.Add(this.BtnDelete);
+            this.Controls.Add(this.BtnAbbrechen);
+            this.Controls.Add(this.BtnSave);
+            this.Controls.Add(this.TxbNummernschild);
+            this.Controls.Add(this.LblNummernschild);
+            this.Controls.Add(this.CmbFarbe);
+            this.Controls.Add(this.LblFarbe);
+            this.Controls.Add(this.TxbModell);
+            this.Controls.Add(this.LblModell);
+            this.Controls.Add(this.TxbMarke);
+            this.Controls.Add(this.LblMarke);
             this.Name = "MainForm";
             this.Text = "Bootsverwaltung";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bootdataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bootMethodenBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem erfassenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tsmiKajak;
-        private System.Windows.Forms.ToolStripMenuItem tsmiKatamaran;
-        private System.Windows.Forms.ToolStripMenuItem tsmiMotorboot;
-        private System.Windows.Forms.ToolStripMenuItem tsmiSegelboot;
-        private System.Windows.Forms.ToolStripMenuItem bearbeitenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem löschenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem anzeigenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tsmiListedetailliert;
-        private System.Windows.Forms.ToolStripMenuItem beendenToolStripMenuItem;
-        private System.Windows.Forms.DataGridView bootdataGridView;
-        private System.Windows.Forms.BindingSource bootMethodenBindingSource;
-        private System.Windows.Forms.Label lblList;
+        private System.Windows.Forms.Label LblMarke;
+        private System.Windows.Forms.TextBox TxbMarke;
+        private System.Windows.Forms.Label LblModell;
+        private System.Windows.Forms.TextBox TxbModell;
+        private System.Windows.Forms.Label LblFarbe;
+        private System.Windows.Forms.ComboBox CmbFarbe;
+        private System.Windows.Forms.Label LblNummernschild;
+        private System.Windows.Forms.TextBox TxbNummernschild;
+        private System.Windows.Forms.Button BtnSave;
+        private System.Windows.Forms.Button BtnAbbrechen;
+        private System.Windows.Forms.Button BtnDelete;
+        private System.Windows.Forms.Button BtnMutieren;
+        private System.Windows.Forms.Button BtnListe;
+        private System.Windows.Forms.ListBox LbxBootsliste;
     }
 }
 

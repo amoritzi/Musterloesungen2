@@ -11,7 +11,7 @@ namespace MLZ_Bootsverwaltung
     class BootMethoden
     {
         public static int AnzahlBoote = 0;
-        public static int BootId = 0;
+        public static int BootId = 1000;
         public static  List<Boot> bootsListe = new List<Boot>();
        
 
@@ -19,22 +19,17 @@ namespace MLZ_Bootsverwaltung
         {
             boot.ID = BootId++;
             bootsListe.Add(new Boot()
-            { ID = boot.ID, Marke = boot.Marke, Modell = boot.Modell, Farbe = boot.Farbe });
-            
+            { ID = boot.ID, Marke = boot.Marke, Modell = boot.Modell, Farbe = boot.Farbe,
+             Nummernschild = boot.Nummernschild});
         }
         public static Kajak ErfasseKajak()
         {
             Kajak kajak = new Kajak();
             ErfasseBootDaten(kajak);
+            bootsListe.Add (new Kajak()
+            { Typ = "KAJ" });
 
             return kajak;
         }
-        public static List<Boot> GetBootList()
-        {
-           return bootsListe;
-        }
-
-
-
     }
 }

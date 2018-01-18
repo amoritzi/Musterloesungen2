@@ -7,14 +7,10 @@ using System.Threading.Tasks;
 namespace MLZ_Bootsverwaltung
 {
     [Serializable]
-    public enum Farbe
+    class Segelboot : Boot
     {
-        weiss,
-        schwarz,
-        rot,
-        blau,
-        gelb,
-        grau,
-        grün
+        public int PS { get; set; }
+        public int MaxSpeedMotor { get; set; }
+        public int MaxSpeedSegel { get; set; }
     }
 }

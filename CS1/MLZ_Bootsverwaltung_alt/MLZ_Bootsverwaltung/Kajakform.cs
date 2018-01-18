@@ -28,11 +28,21 @@ namespace MLZ_Bootsverwaltung
                 boot.Marke = txbKajakMarke.Text;
                 label2.Text = boot.Marke;
         }
+        private void txbKajak_Modell_TextChanged(object sender, EventArgs e)
+        {
+                boot.Modell = txbKajak_Modell.Text;    
+        }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Farbe farbe = new Farbe();
             Enum.TryParse<Farbe>(cbxKajak.SelectedValue.ToString(), out farbe);
-            }
+            boot.Farbe = farbe;
+             
+        }
+        private void txbKajakNummernschild_TextChanged(object sender, EventArgs e)
+        {
+          //  boot.Nummernschild = Convert.ToInt32(txbKajakNummernschild.Text);
+        }
         private void label1_Click(object sender, EventArgs e)
         {
             
@@ -40,14 +50,26 @@ namespace MLZ_Bootsverwaltung
 
         private void button1_Click(object sender, EventArgs e)
         {
-               BootMethoden.AnzahlBoote++;
-               BootMethoden.ErfasseKajak();
-               this.Close();
+            BootMethoden.AnzahlBoote++;
+            BootMethoden.ErfasseKajak();
+            txbKajakMarke.Clear();
+            txbKajak_Modell.Clear();
+            cbxKajak.SelectedItem = Farbe.weiss;
+            txbKajakNummernschild.Clear();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            StringBuilder sb = new StringBuilder();
+            foreach (var zeile in BootMethoden.bootsListe)
+            {
+                sb.AppendLine(String.Format("{0} line", zeile));
+            }
+
+            MessageBox.Show(sb.ToString());
             this.Close();
         }
+
+        
     }
 }

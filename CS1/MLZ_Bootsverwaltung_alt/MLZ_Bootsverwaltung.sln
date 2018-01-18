@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLZ_Bootsverwaltung", "MLZ_Bootsverwaltung\MLZ_Bootsverwaltung.csproj", "{D7680497-C9B3-469A-973B-E00AF4D17B22}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLZ_Bootsverwaltung_alt", "MLZ_Bootsverwaltung\MLZ_Bootsverwaltung_alt.csproj", "{4BACBC5B-5F48-41F7-BF00-BFAD1DF8DE6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D7680497-C9B3-469A-973B-E00AF4D17B22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7680497-C9B3-469A-973B-E00AF4D17B22}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7680497-C9B3-469A-973B-E00AF4D17B22}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D7680497-C9B3-469A-973B-E00AF4D17B22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BACBC5B-5F48-41F7-BF00-BFAD1DF8DE6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BACBC5B-5F48-41F7-BF00-BFAD1DF8DE6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BACBC5B-5F48-41F7-BF00-BFAD1DF8DE6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BACBC5B-5F48-41F7-BF00-BFAD1DF8DE6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {8EA267B2-0DAD-4A77-BC5C-F1BAB9299B3B}
+		SolutionGuid = {25BD83B5-F4B8-46E5-B6BE-6FA1E56EC923}
 	EndGlobalSection
 EndGlobal

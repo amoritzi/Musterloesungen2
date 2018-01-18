@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace MLZ_Bootsverwaltung
 {
-    [Serializable]
-    public enum Farbe
+   public enum Farbe
     {
         weiss,
         schwarz,

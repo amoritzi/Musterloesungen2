@@ -6,15 +6,7 @@ using System.Threading.Tasks;
 
 namespace MLZ_Bootsverwaltung
 {
-    [Serializable]
-    public enum Farbe
+    class Kajak : Boot
     {
-        weiss,
-        schwarz,
-        rot,
-        blau,
-        gelb,
-        grau,
-        grün
     }
 }

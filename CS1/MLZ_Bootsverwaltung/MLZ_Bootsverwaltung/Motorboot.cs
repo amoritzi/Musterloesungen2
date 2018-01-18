@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MLZ_Bootsverwaltung
 {
+    [Serializable]
     class Motorboot : Boot
     {
         public int PS { get; set; }

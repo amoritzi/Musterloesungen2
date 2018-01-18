@@ -38,6 +38,8 @@
             this.btnKajakCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblKajakNummernschild = new System.Windows.Forms.Label();
+            this.txbKajakNummernschild = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblKajak_Marke
@@ -52,7 +54,7 @@
             // 
             // txbKajakMarke
             // 
-            this.txbKajakMarke.Location = new System.Drawing.Point(79, 27);
+            this.txbKajakMarke.Location = new System.Drawing.Point(119, 27);
             this.txbKajakMarke.Name = "txbKajakMarke";
             this.txbKajakMarke.Size = new System.Drawing.Size(250, 20);
             this.txbKajakMarke.TabIndex = 1;
@@ -69,10 +71,11 @@
             // 
             // txbKajak_Modell
             // 
-            this.txbKajak_Modell.Location = new System.Drawing.Point(79, 53);
+            this.txbKajak_Modell.Location = new System.Drawing.Point(119, 53);
             this.txbKajak_Modell.Name = "txbKajak_Modell";
             this.txbKajak_Modell.Size = new System.Drawing.Size(250, 20);
             this.txbKajak_Modell.TabIndex = 3;
+            this.txbKajak_Modell.TextChanged += new System.EventHandler(this.txbKajak_Modell_TextChanged);
             // 
             // lblKajakFarbe
             // 
@@ -86,7 +89,7 @@
             // cbxKajak
             // 
             this.cbxKajak.FormattingEnabled = true;
-            this.cbxKajak.Location = new System.Drawing.Point(79, 84);
+            this.cbxKajak.Location = new System.Drawing.Point(119, 84);
             this.cbxKajak.Name = "cbxKajak";
             this.cbxKajak.Size = new System.Drawing.Size(129, 21);
             this.cbxKajak.TabIndex = 5;
@@ -123,17 +126,36 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(378, 35);
+            this.label2.Location = new System.Drawing.Point(436, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 9;
             this.label2.Text = "Eingabe";
+            // 
+            // lblKajakNummernschild
+            // 
+            this.lblKajakNummernschild.AutoSize = true;
+            this.lblKajakNummernschild.Location = new System.Drawing.Point(23, 124);
+            this.lblKajakNummernschild.Name = "lblKajakNummernschild";
+            this.lblKajakNummernschild.Size = new System.Drawing.Size(79, 13);
+            this.lblKajakNummernschild.TabIndex = 10;
+            this.lblKajakNummernschild.Text = "Nummernschild";
+            // 
+            // txbKajakNummernschild
+            // 
+            this.txbKajakNummernschild.Location = new System.Drawing.Point(119, 116);
+            this.txbKajakNummernschild.Name = "txbKajakNummernschild";
+            this.txbKajakNummernschild.Size = new System.Drawing.Size(250, 20);
+            this.txbKajakNummernschild.TabIndex = 11;
+            this.txbKajakNummernschild.TextChanged += new System.EventHandler(this.txbKajakNummernschild_TextChanged);
             // 
             // Kajakform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(644, 390);
+            this.Controls.Add(this.txbKajakNummernschild);
+            this.Controls.Add(this.lblKajakNummernschild);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnKajakCancel);
@@ -163,5 +185,7 @@
         private System.Windows.Forms.Button btnKajakCancel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblKajakNummernschild;
+        private System.Windows.Forms.TextBox txbKajakNummernschild;
     }
 }
