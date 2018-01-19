@@ -42,6 +42,7 @@
             this.BtnMutieren = new System.Windows.Forms.Button();
             this.BtnListe = new System.Windows.Forms.Button();
             this.LbxBootsliste = new System.Windows.Forms.ListBox();
+            this.BtnMutation = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LblMarke
@@ -113,7 +114,7 @@
             // 
             // BtnSave
             // 
-            this.BtnSave.Location = new System.Drawing.Point(838, 363);
+            this.BtnSave.Location = new System.Drawing.Point(669, 365);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(64, 35);
             this.BtnSave.TabIndex = 11;
@@ -123,7 +124,7 @@
             // 
             // BtnAbbrechen
             // 
-            this.BtnAbbrechen.Location = new System.Drawing.Point(583, 367);
+            this.BtnAbbrechen.Location = new System.Drawing.Point(583, 365);
             this.BtnAbbrechen.Name = "BtnAbbrechen";
             this.BtnAbbrechen.Size = new System.Drawing.Size(70, 35);
             this.BtnAbbrechen.TabIndex = 12;
@@ -133,21 +134,23 @@
             // 
             // BtnDelete
             // 
-            this.BtnDelete.Location = new System.Drawing.Point(763, 366);
+            this.BtnDelete.Location = new System.Drawing.Point(434, 368);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(59, 32);
             this.BtnDelete.TabIndex = 13;
             this.BtnDelete.Text = "Löschen";
             this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // BtnMutieren
             // 
-            this.BtnMutieren.Location = new System.Drawing.Point(672, 368);
+            this.BtnMutieren.Location = new System.Drawing.Point(341, 368);
             this.BtnMutieren.Name = "BtnMutieren";
-            this.BtnMutieren.Size = new System.Drawing.Size(69, 32);
+            this.BtnMutieren.Size = new System.Drawing.Size(69, 34);
             this.BtnMutieren.TabIndex = 14;
             this.BtnMutieren.Text = "Bearbeiten";
             this.BtnMutieren.UseVisualStyleBackColor = true;
+            this.BtnMutieren.Click += new System.EventHandler(this.BtnMutieren_Click);
             // 
             // BtnListe
             // 
@@ -163,15 +166,28 @@
             // 
             this.LbxBootsliste.FormattingEnabled = true;
             this.LbxBootsliste.Location = new System.Drawing.Point(30, 45);
+            this.LbxBootsliste.MultiColumn = true;
             this.LbxBootsliste.Name = "LbxBootsliste";
-            this.LbxBootsliste.Size = new System.Drawing.Size(516, 355);
+            this.LbxBootsliste.Size = new System.Drawing.Size(463, 303);
             this.LbxBootsliste.TabIndex = 16;
+            this.LbxBootsliste.SelectedIndexChanged += new System.EventHandler(this.LbxBootsliste_SelectedIndexChanged);
+            // 
+            // BtnMutation
+            // 
+            this.BtnMutation.Location = new System.Drawing.Point(213, 368);
+            this.BtnMutation.Name = "BtnMutation";
+            this.BtnMutation.Size = new System.Drawing.Size(111, 35);
+            this.BtnMutation.TabIndex = 17;
+            this.BtnMutation.Text = "Mutation speichern";
+            this.BtnMutation.UseVisualStyleBackColor = true;
+            this.BtnMutation.Click += new System.EventHandler(this.BtnMutation_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(925, 410);
+            this.Controls.Add(this.BtnMutation);
             this.Controls.Add(this.LbxBootsliste);
             this.Controls.Add(this.BtnListe);
             this.Controls.Add(this.BtnMutieren);
@@ -208,6 +224,7 @@
         private System.Windows.Forms.Button BtnMutieren;
         private System.Windows.Forms.Button BtnListe;
         private System.Windows.Forms.ListBox LbxBootsliste;
+        private System.Windows.Forms.Button BtnMutation;
     }
 }
 
