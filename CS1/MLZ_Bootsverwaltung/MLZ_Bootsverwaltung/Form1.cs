@@ -33,6 +33,8 @@ namespace MLZ_Bootsverwaltung
         public MainForm()
         {
             InitializeComponent();
+            // Einfacher Befehl, um das Window auf Bildschirmgrösse festzulegen!!
+            // this.WindowState = FormWindowState.Maximized;
             CmbFarbe.DataSource = Enum.GetValues(typeof(Farbe));
             CmbTyp.DataSource = Enum.GetValues(typeof(Typ));
             // Liest File Boats.xlm ein = Bootsliste
@@ -74,11 +76,11 @@ namespace MLZ_Bootsverwaltung
                 || TxbBreite.Text == "" || TxBHoehe.Text == "" || TxBLaenge.Text == "" ||
                 TxbTagesmiete.Text == "" || TxbAnzahlPersonen.Text == "")
             {
-                MessageBox.Show("Feld darf nicht leer sein!");
+                MessageBox.Show("Es müssen alle Felder ausgefüllt werden!");
                 TxbMarke.Focus();
                 return;
             }
-            // Status = neues File
+            // Status 0 = neues File
             if (Status == 0)
             {   // Speichern neue Boote abhängig vom Typ
                 if (typ == Typ.Kajak)
@@ -87,9 +89,23 @@ namespace MLZ_Bootsverwaltung
                     Boot boot = BootErfassen();
                     // Speichert die Daten in der List<> bootsliste
                     bootmodell.bootsListe.Add(boot);
+                    boot.Bildpfad = @"..\..\..\..\..\Bilder\Kajak.jpg";
 
                 }
                 if (typ == Typ.Motorboot)
+                {
+                    if (TxbPS.Text == "" || TxbSpeedMotor.Text == "" || TxbSpeedSegel.Text == "")
+                    {
+                        MessageBox.Show("Es müssen alle Felder ausgefüllt werden!!");
+                        TxbMarke.Focus();
+                        return;
+                    }
+                    IndexNeu();
+                    Motorboot motorboot = MotorbootErfassen();
+                    bootmodell.bootsListe.Add(motorboot);
+                    motorboot.Bildpfad = @"..\..\..\..\..\Bilder\Motorboot.jpg";
+                }
+                if (typ == Typ.Katamaran)
                 {
                     if (TxbPS.Text == "" || TxbSpeedMotor.Text == "" || TxbSpeedSegel.Text == "")
                     {
@@ -100,18 +116,7 @@ namespace MLZ_Bootsverwaltung
                     IndexNeu();
                     Motorboot motorboot = MotorbootErfassen();
                     bootmodell.bootsListe.Add(motorboot);
-                }
-                if (typ == Typ.Katamaran)
-                {
-                    if (TxbPS.Text == "" || TxbSpeedMotor.Text == "" || TxbSpeedSegel.Text == "")
-                    {
-                        MessageBox.Show("Feld darf nicht leer sein!");
-                        TxbMarke.Focus();
-                        return;
-                    }
-                    IndexNeu();
-                    Motorboot motorboot = KatamaranErfassen();
-                    bootmodell.bootsListe.Add(motorboot);
+                    motorboot.Bildpfad = @"..\..\..\..\..\Bilder\Katamaran.jpg";
                 }
                 if (typ == Typ.Segelboot)
                 {
@@ -122,18 +127,20 @@ namespace MLZ_Bootsverwaltung
                         return;
                     }
                     IndexNeu();
-                    Motorboot motorboot = SegelbootErfassen();
+                    Motorboot motorboot = MotorbootErfassen();
                     bootmodell.bootsListe.Add(motorboot);
+                    motorboot.Bildpfad = @"..\..\..\..\..\Bilder\Segelboot.jpg";
                 }
             }
             else
-            {   // Speichern von Mutationen abhängig vom Typ / Untersch.Parameter = Bildanzeige
+            {   // Speichern von Mutationen abhängig vom Typ 
                 if (typ == Typ.Kajak)
                 {
                     IndexMutation();
                     Boot boot = BootMutationSpeichern();
                     // Speichert die geänderten Daten in der List<>
                     bootmodell.bootsListe.Insert(Index, boot);
+                    boot.Bildpfad = @"..\..\..\..\..\Bilder\Kajak.jpg";
                     UpdateListe();
                 }
                 if (typ == Typ.Motorboot)
@@ -141,20 +148,23 @@ namespace MLZ_Bootsverwaltung
                     IndexMutation();
                     Motorboot motorboot = MotorbootMutationSpeichern();
                     bootmodell.bootsListe.Insert(Index, motorboot);
+                    motorboot.Bildpfad = @"..\..\..\..\..\Bilder\Motorboot.jpg";
                     UpdateListe();
                 }
                 if (typ == Typ.Katamaran)
                 {
                     IndexMutation();
-                    Motorboot motorboot = KatamaranMutationSpeichern();
+                    Motorboot motorboot = MotorbootMutationSpeichern();
                     bootmodell.bootsListe.Insert(Index, motorboot);
+                    motorboot.Bildpfad = @"..\..\..\..\..\Bilder\Katamaran.jpg";
                     UpdateListe();
                 }
                 if (typ == Typ.Segelboot)
                 {
                     IndexMutation();
-                    Motorboot motorboot = SegelbootMutationSpeichern();
+                    Motorboot motorboot = MotorbootMutationSpeichern();
                     bootmodell.bootsListe.Insert(Index, motorboot);
+                    motorboot.Bildpfad = @"..\..\..\..\..\Bilder\Segelboot.jpg";
                     UpdateListe();
                 }
             }
@@ -218,7 +228,6 @@ namespace MLZ_Bootsverwaltung
                     Hoehe = Convert.ToDouble(TxBHoehe.Text),
                     Tagesmiete = Convert.ToDouble(TxbTagesmiete.Text),
                     AnzahlPersonen = Convert.ToInt32(TxbAnzahlPersonen.Text),
-                    Bildpfad = @"..\..\..\..\..\Bilder\Kajak.jpg",
                 };
                 Loeschen();
                 return boot;
@@ -247,7 +256,6 @@ namespace MLZ_Bootsverwaltung
                     Hoehe = Convert.ToDouble(TxBHoehe.Text),
                     Tagesmiete = Convert.ToDouble(TxbTagesmiete.Text),
                     AnzahlPersonen = Convert.ToInt32(TxbAnzahlPersonen.Text),
-                    Bildpfad = @"..\..\..\..\..\Bilder\Motorboot.jpg",
                     PS = Convert.ToInt32(TxbPS.Text),
                     MaxSpeedMotor = Convert.ToInt32(TxbSpeedMotor.Text),
                     MaxSpeedSegel = Convert.ToInt32(TxbSpeedMotor.Text)
@@ -262,68 +270,7 @@ namespace MLZ_Bootsverwaltung
             return null;
         }
     
-        public Motorboot KatamaranErfassen()
-        {
-            try
-            {
-                Motorboot motorboot = new Motorboot()
-                {
-                    ID = BootId,
-                    Typ = typ,
-                    Marke = TxbMarke.Text,
-                    Modell = TxbModell.Text,
-                    Farbe = farbe,
-                    Nummernschild = Convert.ToInt32(TxbNummernschild.Text),
-                    Laenge = Convert.ToDouble(TxBLaenge.Text),
-                    Breite = Convert.ToDouble(TxbBreite.Text),
-                    Hoehe = Convert.ToDouble(TxBHoehe.Text),
-                    Tagesmiete = Convert.ToDouble(TxbTagesmiete.Text),
-                    AnzahlPersonen = Convert.ToInt32(TxbAnzahlPersonen.Text),
-                    Bildpfad = @"..\..\..\..\..\Bilder\Katamaran.jpg",
-                    PS = Convert.ToInt32(TxbPS.Text),
-                    MaxSpeedMotor = Convert.ToInt32(TxbSpeedMotor.Text),
-                    MaxSpeedSegel = Convert.ToInt32(TxbSpeedMotor.Text)
-                };
-                Loeschen();
-                return motorboot;
-            }
-            catch (System.FormatException e)
-            {
-                MessageBox.Show("Die Felder müssen ausgefüllt werden.");
-            }
-            return null;
-        }
-        public Motorboot SegelbootErfassen()
-        {
-            try
-            {
-                Motorboot motorboot = new Motorboot()
-                {
-                    ID = BootId,
-                    Typ = typ,
-                    Marke = TxbMarke.Text,
-                    Modell = TxbModell.Text,
-                    Farbe = farbe,
-                    Nummernschild = Convert.ToInt32(TxbNummernschild.Text),
-                    Laenge = Convert.ToDouble(TxBLaenge.Text),
-                    Breite = Convert.ToDouble(TxbBreite.Text),
-                    Hoehe = Convert.ToDouble(TxBHoehe.Text),
-                    Tagesmiete = Convert.ToDouble(TxbTagesmiete.Text),
-                    AnzahlPersonen = Convert.ToInt32(TxbAnzahlPersonen.Text),
-                    Bildpfad = @"..\..\..\..\..\Bilder\Segelboot.jpg",
-                    PS = Convert.ToInt32(TxbPS.Text),
-                    MaxSpeedMotor = Convert.ToInt32(TxbSpeedMotor.Text),
-                    MaxSpeedSegel = Convert.ToInt32(TxbSpeedMotor.Text)
-                };
-                Loeschen();
-                return motorboot;
-            }
-            catch (System.FormatException e)
-            {
-                MessageBox.Show("Die Felder müssen ausgefüllt werden.");
-            }
-            return null;
-        }
+ 
 
         // Die Daten in den Textfeldern werden nach der allfälligen Aenderung
         // in der Klasse Boot abgespeichert
@@ -343,8 +290,6 @@ namespace MLZ_Bootsverwaltung
                 Hoehe = Convert.ToDouble(TxBHoehe.Text),
                 Tagesmiete = Convert.ToDouble(TxbTagesmiete.Text),
                 AnzahlPersonen = Convert.ToInt32(TxbAnzahlPersonen.Text),
-                Bildpfad = @"..\..\..\..\..\Bilder\Kajak.jpg",
-
             };
             Status = 0;
             Loeschen();
@@ -365,7 +310,6 @@ namespace MLZ_Bootsverwaltung
                 Hoehe = Convert.ToDouble(TxBHoehe.Text),
                 Tagesmiete = Convert.ToDouble(TxbTagesmiete.Text),
                 AnzahlPersonen = Convert.ToInt32(TxbAnzahlPersonen.Text),
-                Bildpfad = @"..\..\..\..\..\Bilder\Motorboot.jpg",
                 PS = Convert.ToInt32(TxbPS.Text),
                 MaxSpeedMotor = Convert.ToInt32(TxbSpeedMotor.Text),
                 MaxSpeedSegel = Convert.ToInt32(TxbSpeedMotor.Text)
@@ -374,55 +318,7 @@ namespace MLZ_Bootsverwaltung
             Loeschen();
             return motorboot;
         }
-        public Motorboot KatamaranMutationSpeichern()
-        {
-            Motorboot motorboot = new Motorboot()
-            {
-                ID = id,
-                Typ = typ,
-                Marke = TxbMarke.Text,
-                Modell = TxbModell.Text,
-                Farbe = farbe,
-                Nummernschild = Convert.ToInt32(TxbNummernschild.Text),
-                Laenge = Convert.ToDouble(TxBLaenge.Text),
-                Breite = Convert.ToDouble(TxbBreite.Text),
-                Hoehe = Convert.ToDouble(TxBHoehe.Text),
-                Tagesmiete = Convert.ToDouble(TxbTagesmiete.Text),
-                AnzahlPersonen = Convert.ToInt32(TxbAnzahlPersonen.Text),
-                Bildpfad = @"..\..\..\..\..\Bilder\Katamaran.jpg",
-                PS = Convert.ToInt32(TxbPS.Text),
-                MaxSpeedMotor = Convert.ToInt32(TxbSpeedMotor.Text),
-                MaxSpeedSegel = Convert.ToInt32(TxbSpeedMotor.Text)
-            };
-            Status = 0;
-            Loeschen();
-            return motorboot;
-        }
-        public Motorboot SegelbootMutationSpeichern()
-        {
-            Motorboot motorboot = new Motorboot()
-            {
-                ID = id,
-                Typ = typ,
-                Marke = TxbMarke.Text,
-                Modell = TxbModell.Text,
-                Farbe = farbe,
-                Nummernschild = Convert.ToInt32(TxbNummernschild.Text),
-                Laenge = Convert.ToDouble(TxBLaenge.Text),
-                Breite = Convert.ToDouble(TxbBreite.Text),
-                Hoehe = Convert.ToDouble(TxBHoehe.Text),
-                Tagesmiete = Convert.ToDouble(TxbTagesmiete.Text),
-                AnzahlPersonen = Convert.ToInt32(TxbAnzahlPersonen.Text),
-                Bildpfad = @"..\..\..\..\..\Bilder\Segelboot.jpg",
-                PS = Convert.ToInt32(TxbPS.Text),
-                MaxSpeedMotor = Convert.ToInt32(TxbSpeedMotor.Text),
-                MaxSpeedSegel = Convert.ToInt32(TxbSpeedMotor.Text)
-            };
-            Status = 0;
-            Loeschen();
-            return motorboot;
-        }
-
+ 
         // Die Daten des jeweils markierten Bootes werden aus der bootsliste ausgelesen
         // und für die Mutation in die Textfelder geschrieben
         public void KajakMutieren()
@@ -492,7 +388,7 @@ namespace MLZ_Bootsverwaltung
             TxbSpeedSegel.Clear();
         }
 
-        // Bootsliste wird TextBox generiert
+        // Bootsliste wird in TextBox generiert
         private void BtnListe_Click(object sender, EventArgs e)
         {
             UpdateListe();
