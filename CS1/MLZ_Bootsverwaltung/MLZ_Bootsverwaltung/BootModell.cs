@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace MLZ_Bootsverwaltung
 {
     [Serializable]
-    class Katamaran : Boot
+    class BootModell
     {
-        public int PS { get; set; }
-        public int MaxSpeedMotor { get; set; }
-        public int MaxSpeedSegel { get; set; }
+        Boot boot = new Boot();
+        public List<Boot> bootsListe = new List<Boot>();
     }
 }

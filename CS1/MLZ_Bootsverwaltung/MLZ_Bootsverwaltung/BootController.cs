@@ -3,57 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
+using System.IO;
+using System.Windows.Forms;
 
 namespace MLZ_Bootsverwaltung
 {
+    [Serializable]
     class BootController
     {
-        public static int AnzahlBoote = 0;
-        public static int BootId = 1000;
-        Boot boot = new Boot();
-       
+      //  Boot boot = new Boot();
+               
         public BootController()
         {
 
         }
-        public BootController(string Marke, string Modell)
+
+        // File Save bzw. Read
+        public static void SerializeXml(string file, List<Boot> bootsliste)
         {
-            boot.Marke = Marke;
-            boot.Modell = Modell;
+            Stream stm = new FileStream(file, FileMode.Create);
+            XmlSerializer xs = new XmlSerializer(typeof(List<Boot>));
+            xs.Serialize(stm, bootsliste);
+            stm.Flush();
+            stm.Close();
         }
-              public void Erfassen(Boot boot)
-              {
-                    BootId++;
 
-                    boot.bootsListe.Add(new Boot()
-                    {
-                         ID = BootId,
-                         Marke = boot.Marke,
-                         Modell = boot.Modell
-                  //  Farbe = boot.Farbe,
-                   //  Nummernschild = boot.Nummernschild
-        });
-           }
-
-
-
-    public void Mutieren(Boot boot)
+        public static List<Boot> DeserializeXml(string file)
         {
-
-            boot.bootsListe.Insert(MainForm.Index, new Boot()
-            {
-                ID = MainForm.id,
-                Marke = boot.Marke,
-                Modell = boot.Modell
-            });
-            
+            Stream stm = new FileStream(file, FileMode.Open);
+            XmlSerializer xs = new XmlSerializer(typeof(List<Boot>));
+            object obj = xs.Deserialize(stm);
+            stm.Close();
+            return obj as List<Boot>;
         }
 
-      /*  public static void ErfasseKajak()
-                 {
-                     Kajak kajak = new Kajak();
-                     ErfasseBootDaten(kajak);
-                 }  */
-        }
     }
+}
+    
 

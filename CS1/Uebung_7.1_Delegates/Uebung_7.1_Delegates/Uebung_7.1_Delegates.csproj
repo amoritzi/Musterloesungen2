@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D7680497-C9B3-469A-973B-E00AF4D17B22}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>MLZ_Bootsverwaltung</RootNamespace>
-    <AssemblyName>MLZ_Bootsverwaltung</AssemblyName>
+    <ProjectGuid>{EF5095FF-1C08-42ED-910F-6CCBDC6BE54A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Uebung_7._1_Delegates</RootNamespace>
+    <AssemblyName>Uebung_7.1_Delegates</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -38,58 +38,15 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bildanzeige.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bildanzeige.Designer.cs">
-      <DependentUpon>Bildanzeige.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Boot.cs" />
-    <Compile Include="BootController.cs" />
-    <Compile Include="BootModell.cs" />
-    <Compile Include="Farbe.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Motorboot.cs" />
+    <Compile Include="EmailSender.cs" />
+    <Compile Include="MessageManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Typ.cs" />
-    <EmbeddedResource Include="Bildanzeige.resx">
-      <DependentUpon>Bildanzeige.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\DataSources\Boot.datasource" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
+    <Compile Include="SMSSender.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

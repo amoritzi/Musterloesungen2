@@ -7,15 +7,11 @@ using System.Threading.Tasks;
 namespace MLZ_Bootsverwaltung
 {
     [Serializable]
-    class Kajak : Boot
+    public enum Typ
     {
-        public Kajak()
-        {
-
-        }
-        public Kajak(string Marke, string Modell)
-        {
-           
-        }
+        Kajak,
+        Katamaran,
+        Motorboot,
+        Segelboot
     }
 }
