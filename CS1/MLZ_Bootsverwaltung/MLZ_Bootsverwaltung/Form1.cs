@@ -71,7 +71,7 @@ namespace MLZ_Bootsverwaltung
         }
         
         private void BtnSave_Click(object sender, EventArgs e)
-        {
+        {   // Fängt ab, wenn Felder leer sind.
             if (TxbMarke.Text == "" || TxbModell.Text == ""  || TxbNummernschild.Text == ""
                 || TxbBreite.Text == "" || TxBHoehe.Text == "" || TxBLaenge.Text == "" ||
                 TxbTagesmiete.Text == "" || TxbAnzahlPersonen.Text == "")
@@ -93,7 +93,7 @@ namespace MLZ_Bootsverwaltung
 
                 }
                 if (typ == Typ.Motorboot)
-                {
+                {   // Fängt ab, wenn Felder leer sind.
                     if (TxbPS.Text == "" || TxbSpeedMotor.Text == "" || TxbSpeedSegel.Text == "")
                     {
                         MessageBox.Show("Es müssen alle Felder ausgefüllt werden!!");
@@ -202,9 +202,11 @@ namespace MLZ_Bootsverwaltung
         public void IndexMutation()
         {
             Boot mutation;
+            // as Boot > Wandelt Item in den Typ Boot
             mutation = (LbxBootsliste.SelectedItem as Boot);
             id = mutation.ID;
             Index = bootmodell.bootsListe.FindIndex(r => r.ID == id);
+            // Löscht markiertes Item aus Bootsliste
             if ((LbxBootsliste.SelectedIndex >= 0 && (LbxBootsliste.SelectedIndex < bootmodell.bootsListe.Count)))
                 bootmodell.bootsListe.RemoveAt(LbxBootsliste.SelectedIndex);
         }
@@ -215,7 +217,7 @@ namespace MLZ_Bootsverwaltung
         {
             try
             {
-                Boot boot = new Boot()
+                Boot boot = new Boot()  // = Kajak!
                 {
                     ID = BootId,
                     Typ = typ,
@@ -270,14 +272,12 @@ namespace MLZ_Bootsverwaltung
             return null;
         }
     
- 
-
         // Die Daten in den Textfeldern werden nach der allfälligen Aenderung
         // in der Klasse Boot abgespeichert
         // Bereitstellung der Daten in die Textfelder siehe unten unter ....mutieren()
         public Boot BootMutationSpeichern()
         {
-            Boot boot = new Boot()
+            Boot boot = new Boot()  // = Kajak
             {
                 ID = id,
                 Typ = typ,
@@ -338,7 +338,7 @@ namespace MLZ_Bootsverwaltung
             TxBHoehe.Text = Convert.ToString(record.Hoehe);
             TxbTagesmiete.Text = Convert.ToString(record.Tagesmiete);
             TxbAnzahlPersonen.Text = Convert.ToString(record.AnzahlPersonen);
-
+            // Status 1 = Mutation
             Status = 1;
 
             MessageBox.Show("Bitte Mutation eintragen und \"Speichern\" drücken");
