@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Books_XLM_4._3
 {
+    [Serializable]
     class Buchliste
     {
         Book book = new Book();
-        public List<Book> buchListe = new List<Book>();
+        public static List<Book> buchListe = new List<Book>();
     }
 }
