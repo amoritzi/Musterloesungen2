@@ -22,9 +22,9 @@ namespace Books_XLM_4._3
            public override string ToString()
         {
             return $"Id:{ Id}, Autor:{ Author}, Location:{PublishLocation}, Titel:{ Title}," +
-                $" Genre;{Genre}, Preis:{Price}," +
+                $" Genre;{Genre}, Preis:{Price}," /*+
                 $"Publikations-Datum:{PublishDate},  " +
-                $"Beschreibung: {Description}";  
+                $"Beschreibung: {Description}"*/;  
         } 
     /*    public override string ToString()
         {

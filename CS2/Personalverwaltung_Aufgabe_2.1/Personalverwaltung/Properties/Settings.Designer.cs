@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MLZ_Bootsverwaltung.Properties
+namespace Personalverwaltung.Properties
 {
 
 

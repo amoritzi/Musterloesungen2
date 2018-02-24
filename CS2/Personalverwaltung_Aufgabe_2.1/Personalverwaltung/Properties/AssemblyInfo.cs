@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Allgemeine Informationen über eine Assembly werden über die folgenden
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
-[assembly: AssemblyTitle("MLZ_Bootsverwaltung")]
+[assembly: AssemblyTitle("Personalverwaltung")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MLZ_Bootsverwaltung")]
+[assembly: AssemblyProduct("Personalverwaltung")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Die folgende GUID bestimmt die ID der Typbibliothek, wenn dieses Projekt für COM verfügbar gemacht wird
-[assembly: Guid("4bacbc5b-5f48-41f7-bf00-bfad1df8de6a")]
+[assembly: Guid("9a928d60-fb67-4bb9-b1d4-666013aa6b81")]
 
 // Versionsinformationen für eine Assembly bestehen aus den folgenden vier Werten:
 //
