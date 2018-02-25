@@ -118,23 +118,6 @@ namespace Personalverwaltung.Controller
             cmd.Parameters.AddWithValue("@ID", updID);
             return cmd;
         }
-
-        public void ReadData(string connString, string queryString)
-        {
-            using (SqlConnection con = new SqlConnection(connString))
-            {
-                SqlCommand command = new SqlCommand(queryString, con);
-                con.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                  var personenliste = (reader.ToString());
-
-                }
-            }
-        }
-
     }
 }
 

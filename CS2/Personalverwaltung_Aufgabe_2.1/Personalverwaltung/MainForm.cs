@@ -114,14 +114,7 @@ namespace Personalverwaltung
             Telefon = TbxTelefon.Text;
 
         }
-
-        private void UpdateListe()
-        {
-            DgvMitarbeiterListe.DataSource = null;
-            lbxBindingSource.DataSource = personcon.personenliste;
-            DgvMitarbeiterListe.DataSource = lbxBindingSource;
-        }
-
+               
         private void BtnSuchen_Click(object sender, EventArgs e)
         {
             eingabe = TbxSuche.Text;      
